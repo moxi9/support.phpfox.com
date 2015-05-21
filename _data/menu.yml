@@ -1,0 +1,9 @@
+
+- name: Getting Started
+  url: getting-started
+  docs:
+    - title: Requirements
+      url: requirements
+
+    - title: Installing PHPfox
+      url: installing-phpfox
