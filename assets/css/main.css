@@ -98,7 +98,9 @@ a:focus {
   font-size: 14px;
 }
 #panel > nav > div > div > a.active,
-#results > nav > div > div > a.active {
+#results > nav > div > div > a.active,
+#panel > nav > div > div > a.active:hover,
+#results > nav > div > div > a.active:hover {
   background: #f47d30;
   color: #ffffff;
 }
@@ -162,6 +164,54 @@ blockquote img {
 #results {
   z-index: 200;
   top: 130px;
-  background: red;
+  background: #3c3c3c;
   display: none;
+}
+#results > a,
+#results > a:hover {
+  display: block;
+  padding: 10px 10px 10px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+}
+#results > a:hover {
+  background: #323232;
+}
+.links {
+  border-top: 1px #dddddd solid;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  padding-left: 20px;
+  margin-left: 250px;
+  font-size: 13px;
+  position: relative;
+}
+.links a.next,
+.links a.next:hover {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 14px;
+}
+.links a.next i,
+.links a.next:hover i {
+  margin-right: 0px;
+  margin-left: 10px;
+}
+.links a,
+.links a:hover {
+  display: inline-block;
+  color: #a6a6a6;
+  text-decoration: none;
+}
+.links a i,
+.links a:hover i {
+  margin-right: 5px;
+  font-size: 22px;
+  vertical-align: bottom;
+}
+.links a:hover {
+  color: #222;
 }
