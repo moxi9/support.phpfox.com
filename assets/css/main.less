@@ -94,7 +94,7 @@ a, a:hover, a:focus {
 				font-size:14px;
 			}
 
-			> a.active {
+			> a.active, > a.active:hover {
 				background:@primary-bg;
 				color:@primary-bg-color;
 			}
@@ -174,6 +174,57 @@ blockquote {
 #results {
 	z-index:200;
 	top:130px;
-	background:red;
+	background:@nav-bg;
 	display:none;
+
+	> a, > a:hover {
+		display:block;
+		padding:10px 10px 10px 20px;
+		color:@nav-color;
+		text-decoration:none;
+		font-size:14px;
+	}
+
+	> a:hover {
+		background:darken(@nav-bg, 4%);
+	}
+}
+
+.links {
+	border-top:1px darken(@body-bg, 10%) solid;
+	margin-top:20px;
+	padding-top:20px;
+	padding-bottom:50px;
+	padding-left:20px;
+	margin-left:250px;
+	font-size:13px;
+	position:relative;
+
+	a.next, a.next:hover {
+		position:absolute;
+		right:20px;
+		top:20px;
+		font-size:14px;
+
+		i {
+			margin-right:0px;
+			margin-left:10px;
+		}
+	}
+
+	a, a:hover {
+		display:inline-block;
+		color:lighten(#808080, 15%);
+		text-decoration:none;
+
+		i {
+			margin-right:5px;
+			font-size:22px;
+			vertical-align:bottom;
+		}
+	}
+
+	a:hover {
+		color:#222;
+	}
 }
