@@ -160,6 +160,7 @@ blockquote img {
   box-shadow: none;
   padding: 10px 0px;
   width: 100%;
+  font-size: 13px;
 }
 #results {
   z-index: 200;

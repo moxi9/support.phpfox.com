@@ -49,8 +49,7 @@ $(document).ready(function() {
 			var regex = new RegExp(t.val(),'i');
 
 			if (term.title.search(regex) > -1) {
-				// console.log(term);
-				html += '<a href="#">' + term.title + '</a>';
+				html += '<a href="' + term.href + '">' + term.title + '</a>';
 				cnt++;
 			}
 		}
@@ -62,13 +61,4 @@ $(document).ready(function() {
 			el.html('').hide();
 		}
 	});
-
-	/*
-	$.ajax({
-		url: '/search.json',
-		success: function(e) {
-			console.log(e);
-		}
-	});
-	*/
 });
