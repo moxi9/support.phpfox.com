@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>{{ page.title }} - PHPfox Docs</title>
+		{% assign version = 1 %}
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
 		<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -10,7 +11,7 @@
 		<link rel="stylesheet" href="http://cdn.jsdelivr.net/fontawesome/4.3.0/css/font-awesome.min.css">
 
 		<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/assets/css/main.css">
+		<link rel="stylesheet" href="/assets/css/main.css?v={{ version }}">
 
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 		<link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -76,6 +77,6 @@
 		<script src="//cdn.jsdelivr.net/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		<script src="//cdn.jsdelivr.net/jquery.magnific-popup/1.0.0/jquery.magnific-popup.min.js"></script>
 
-		<script src="/assets/js/main.js"></script>
+		<script src="/assets/js/main.js?v={{ version }}"></script>
 	</body>
 </html>
