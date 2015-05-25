@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
-		<title>Requirements - PHPfox Docs</title>
+		<title>Editing your sites CSS with PHPfox - PHPfox Docs</title>
 		
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -37,7 +37,7 @@
 					<div>
 					
 						
-						<a href="/getting-started/requirements/" class="active">Requirements</a>
+						<a href="/getting-started/requirements/">Requirements</a>
 					
 						
 						<a href="/getting-started/installing-phpfox/">Installing PHPfox</a>
@@ -62,7 +62,7 @@
 						<a href="/themes/html/">Editing HTML</a>
 					
 						
-						<a href="/themes/css/">Editing CSS</a>
+						<a href="/themes/css/" class="active">Editing CSS</a>
 					
 						
 						<a href="/themes/javascript/">Editing JavaScript</a>
@@ -74,58 +74,26 @@
 		</div>
 
 		<div id="content" class="container-fluid article">
-			<h1 id="phpfox-requirements">PHPfox Requirements</h1>
+			<h1 id="editing-your-themes-css">Editing your Themes CSS</h1>
 
-<p>If you are unsure if your web server meets our products requirements, simply contact your host and send them this page.</p>
+<p>When editing CSS from the AdminCP you will notice the editor is blank when first opening it. This is designed to allow you to
+append any custom CSS you wish to overwrite.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>PHP Version</td>
-      <td>5.4 or higher</td>
-    </tr>
-    <tr>
-      <td>MySQL Version</td>
-      <td>4.1+</td>
-    </tr>
-    <tr>
-      <td>PHP EXEC function</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>PHP GD</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>PHP CURL</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>PHP memory_limit</td>
-      <td>64M</td>
-    </tr>
-  </tbody>
-</table>
+<p>To find out what CSS ID’s &amp; classes to modify you can use <a href="http://getfirebug.com/">Firebug</a>.</p>
 
-<p><a href="/getting-started/installing-phpfox/" class="next">Installing PHPfox</a></p>
+<p><a href="/themes/javascript/" class="next">Editing JavaScript</a></p>
 
-<h3 id="need-a-host">Need a host?</h3>
 <blockquote>
-  <p><a href="http://www.phpfoxsolutions.com/" target="_blank"><img src="http://www.phpfoxsolutions.com/images/ps-ad-125x125-b-2.png" alt="" /></a> <a href="http://www.phpfoxsolutions.com/">PhpFoxSolutions</a>, a service by Teamwurkz Technologies, Inc, is focused on being a total solution source for PHPfox powered sites. Our extensive knowledge of the PHPfox script comes from years of experience working with clients to set up and maintain their sites. We’ve helped grow sites from start-up to millions of members, and still are maintaining those sites today.</p>
+  <p><strong>Developers Note:</strong>
+<em>We use <a href="http://lesscss.org/">Less</a> as our CSS pre-preprocessor.</em>
+Less variables can be found in the file: <strong>/PF.Site/themes/{$THEME_ID}/flavor/{$FLAVOR_ID}.less</strong></p>
 </blockquote>
-
 
 		</div>
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/getting-started/requirements/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/themes/css/index.md" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>

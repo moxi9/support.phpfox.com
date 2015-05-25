@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
-		<title>Installing PHPfox - PHPfox Docs</title>
+		<title>Installing PHPfox with Git - PHPfox Docs</title>
 		
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -40,10 +40,10 @@
 						<a href="/getting-started/requirements/">Requirements</a>
 					
 						
-						<a href="/getting-started/installing-phpfox/" class="active">Installing PHPfox</a>
+						<a href="/getting-started/installing-phpfox/">Installing PHPfox</a>
 					
 						
-						<a href="/getting-started/installing-phpfox-with-git/">Installing PHPfox with Git</a>
+						<a href="/getting-started/installing-phpfox-with-git/" class="active">Installing PHPfox with Git</a>
 					
 					</div>
 				</div>
@@ -74,39 +74,35 @@
 		</div>
 
 		<div id="content" class="container-fluid article">
-			<h1 id="installing-phpfox">Installing PHPfox</h1>
-
-<p>This guide will help you through the installation process of PHPfox v4 or higher.</p>
-
-<h2 id="downloading">Downloading</h2>
-
-<p>Download the latest version of PHPfox from <a href="https://github.com/moxi9/phpfox-dist/archive/master.zip">here</a>.</p>
-
-<p>Once you have downloaded and unzipped the package, you should see something like this…</p>
-
-<p><img src="/assets/img/files.png" alt="" /></p>
-
-<p>You are to upload those files and folders to your sites root directory.</p>
-
-<blockquote>
-  <p><em>Hint: If you have cPanel you will have a File Manager that has an Unzip feature. You could ZIP up those files/folders and upload the one ZIP file.
-Then unzip it on your server.</em></p>
+			<blockquote>
+  <p><strong>Notice:</strong> This requires SSH access to your server</p>
 </blockquote>
+
+<h1 id="installing-phpfox-with-git">Installing PHPfox with Git</h1>
+
+<p>This guide will help you through the installation process of PHPfox v4 or higher using Git.
+This is not the most common method for our clients, but it is the preferred route. Upgrades via Git are a breeze
+and installing nightly builds care free.</p>
+
+<h2 id="clone-phpfox">Clone PHPfox</h2>
+
+<p>First step will be to clone a distribution copy of PHPfox from Github.</p>
+
+<p><code>
+git clone https://github.com/moxi9/phpfox-dist.git .
+</code></p>
 
 <h2 id="folder-permissions">Folder Permissions</h2>
 
-<p>Once you have uploaded all the files/folders. You need to grant full read/write access (usually 0777) to the following 2 folders:</p>
+<p>Once you have cloned PHPfox, you need to grant full read/write access to the following 2 folders:</p>
 
-<ul>
-  <li>PF.Base/</li>
-  <li>PF.Site/</li>
-</ul>
+<p><code>
+chmod 0777 PF.Base/
+</code></p>
 
-<p><img src="/assets/img/permission.png" alt="" /></p>
-
-<blockquote>
-  <p><em>Note: Once you have completed the install you can return the permissions for the folder <strong>PF.Base</strong> back to what it originally was set to.</em></p>
-</blockquote>
+<p><code>
+chmod 0777 PF.Site/
+</code></p>
 
 <h2 id="web-installer">Web Installer</h2>
 
@@ -147,7 +143,7 @@ with great power.</p>
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/getting-started/installing-phpfox/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/getting-started/installing-phpfox-with-git/index.md" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>
