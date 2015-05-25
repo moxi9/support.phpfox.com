@@ -35,6 +35,7 @@ a, a:hover, a:focus {
 	right:0px;
 	height:70px;
 	line-height:70px;
+	z-index:300;
 
 	h1 {
 		height:70px;
@@ -107,19 +108,24 @@ a, a:hover, a:focus {
 }
 
 #content {
-	margin:80px 0px 50px 260px;
+	margin:90px 0px 50px 270px;
 }
 
 .article {
 	h1:first-of-type {
 		margin-top:0px;
+		border-bottom:1px darken(#fff, 10%) solid;
+		padding-bottom:5px;
+		margin-bottom:20px;
 	}
 
 	h2 {
 		margin-top:30px;
 	}
 
-	max-width:600px;
+	max-width:640px;
+	background:#fff;
+	padding:20px;
 
 	img {
 		border:1px #dfdfdf solid;
@@ -191,6 +197,37 @@ blockquote {
 	}
 }
 
+a.next:before {
+	content:'Next:';
+	display:inline-block;
+	margin-right:10px;
+	font-weight:500;
+	color:@primary-bg-color;
+}
+
+a.next, a.next:hover {
+	display:block;
+	font-size:16px;
+	margin:40px -20px;
+	height:70px;
+	line-height:70px;
+	background:darken(@primary-bg, 10%);
+	color:darken(@primary-bg-color, 10%);
+	text-indent:20px;
+	text-decoration:none;
+	box-shadow: inset 0px -2px 20px 3px rgba(0,0,0,0.2);
+
+	i {
+		margin-right:0px;
+		margin-left:10px;
+	}
+}
+
+a.next:hover {
+	box-shadow:none;
+	color:@primary-bg-color;
+}
+
 .links {
 	border-top:1px darken(@body-bg, 10%) solid;
 	margin-top:20px;
@@ -200,18 +237,6 @@ blockquote {
 	margin-left:250px;
 	font-size:13px;
 	position:relative;
-
-	a.next, a.next:hover {
-		position:absolute;
-		right:20px;
-		top:20px;
-		font-size:14px;
-
-		i {
-			margin-right:0px;
-			margin-left:10px;
-		}
-	}
 
 	a, a:hover {
 		display:inline-block;
@@ -228,4 +253,32 @@ blockquote {
 	a:hover {
 		color:#222;
 	}
+}
+
+.top10 {
+	margin-top:10px;
+}
+
+.top20 {
+	margin-top:20px;
+}
+
+pre {
+	background:transparent;
+	padding:0px;
+	margin:5px 0px;
+	border:0px;
+}
+
+.hljs {
+	padding:20px;
+}
+
+code:not(.hljs) {
+	padding:20px;
+	background:@nav-bg;
+	color:@nav-color;
+	display:block;
+	/*max-width:600px;*/
+	margin:5px 0px;
 }

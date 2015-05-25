@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.4/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.magnific-popup/1.0.0/magnific-popup.css">
 		<link rel="stylesheet" href="http://cdn.jsdelivr.net/fontawesome/4.3.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/8.6/styles/default.min.css">
 
 		<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/assets/css/main.css?v={{ version }}">
@@ -53,29 +54,13 @@
 				<a href="https://github.com/moxi9/support.phpfox.com/blob/master{{ page.url|replace:'.html','.md' }}" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
-
-				{% for menu in site.data.menu %}
-					{% for doc in menu.docs %}
-
-						{% if next %}
-							<a href="/{{ menu.url }}/{{ doc.url }}/" class="next">{{ doc.title }}<i class="fa fa-arrow-circle-right"></i></a>
-							{% break %}
-						{% endif %}
-
-						{% capture url %}/{{ menu.url }}/{{ doc.url }}/index.html{% endcapture %}
-						{% if page.url == url %}
-						{% assign next = doc %}
-						{% endif %}
-
-					{% endfor %}
-				{% endfor %}
-
 			</div>
 		{% endif %}
 
 		<script src="//cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js"></script>
 		<script src="//cdn.jsdelivr.net/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		<script src="//cdn.jsdelivr.net/jquery.magnific-popup/1.0.0/jquery.magnific-popup.min.js"></script>
+		<script src="//cdn.jsdelivr.net/highlight.js/8.6/highlight.min.js"></script>
 
 		<script src="/assets/js/main.js?v={{ version }}"></script>
 	</body>

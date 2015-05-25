@@ -12,41 +12,22 @@ Download the latest version of PHPfox from [here](https://github.com/moxi9/phpfo
 
 Once you have downloaded and unzipped the package, you should see something like this...
 
-![](img/files.png)
+![](/assets/img/files.png)
 
 You are to upload those files and folders to your sites root directory.
 
-## Web Installer
+> *Hint: If you have cPanel you will have a File Manager that has an Unzip feature. You could ZIP up those files/folders and upload the one ZIP file.
+> Then unzip it on your server.*
 
-Once all the files have been uploaded, using your web browser of choice visit your site.
+## Folder Permissions
 
-The first step of the web install, will be to select what type of license to assign to this copy of PHPfox.
+Once you have uploaded all the files/folders. You need to grant full read/write access (usually 0777) to the following 2 folders:
 
-![](img/select-a-license.png)
+* PF.Base/
+* PF.Site/
 
-If you have purchased a license and wish to connect to our store front select **Premium**.
+![](/assets/img/permission.png)
 
-## Enter your License ID & Key
+> *Note: Once you have completed the install you can return the permissions for the folder **PF.Base** back to what it originally was set to.*
 
-The next step will require you to enter your PHPfox License ID & Key, which was sent to you via an email directly after your purchase.
-
-![](img/enter-license-id.png)
-
-## Database Configuration
-
-PHPfox uses MySQL(i) and you can use a local or remote server. If you do not have or know your database credentials, just contact your host
- and they will point you in the right direction.
-
-![](img/database-configuration.png)
-
-Once you have entered all the correct details and run the web installer, it will get everything setup in no time.
-
-## Administrators Account
-
-You are almost done! Your final step will be to create an administrators account. You can change any of the details you add here later,
-so don't sweat it. One thing you might want to take a moment to think about, is your password. Make it a good one, your Admin account comes
-with great power.
-
-![](img/admin-account.png)
-
-Congratulations! You have successfully installed PHPfox.
+{% include web-installer.md %}

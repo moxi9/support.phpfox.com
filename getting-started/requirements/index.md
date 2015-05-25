@@ -16,6 +16,8 @@ PHP GD | Yes
 PHP CURL | Yes
 PHP memory_limit | 64M
 
+<a href="/getting-started/installing-phpfox/" class="next">Installing PHPfox</a>
+
 ### Need a host?
 > <a href="http://www.phpfoxsolutions.com/" target="_blank">![](http://www.phpfoxsolutions.com/images/ps-ad-125x125-b-2.png)</a> [PhpFoxSolutions](http://www.phpfoxsolutions.com/), a service by Teamwurkz Technologies, Inc, is focused on being a total solution source for PHPfox powered sites. Our extensive knowledge of the PHPfox script comes from years of experience working with clients to set up and maintain their sites. We've helped grow sites from start-up to millions of members, and still are maintaining those sites today.
 
