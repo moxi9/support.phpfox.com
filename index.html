@@ -8,11 +8,11 @@
 
 		<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.4/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.magnific-popup/1.0.0/magnific-popup.css">
-		<link rel="stylesheet" href="http://cdn.jsdelivr.net/fontawesome/4.3.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.3.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/8.6/styles/default.min.css">
 
 		<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/assets/css/main.css?v=1">
+		<link rel="stylesheet" href="/assets/css/main.css?v=3">
 
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 		<link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -20,61 +20,174 @@
 	<body>
 		<div id="header">
 			<div class="container">
-				<h1><a href="http://phpfox.com/">PHP<span>fox</span></a></h1>
+				<h1><a href="http://www.phpfox.com/">PHP<span>fox</span></a></h1>
+				<h2><a href="/">Support</a></h2>
 			</div>
 		</div>
 
-		<div id="panel">
-			<form method="get" class="search">
-				<input type="text" name="q" placeholder="Search..." autocomplete="off">
-			</form>
-			<div id="results"></div>
-
-			<nav>
-			
-				<div>
-					<a href="#">Getting Started</a>
-					<div>
-					
-						
-						<a href="/getting-started/requirements/">Requirements</a>
-					
-						
-						<a href="/getting-started/installing-phpfox/">Installing PHPfox</a>
-					
-						
-						<a href="/getting-started/installing-phpfox-with-git/">Installing PHPfox with Git</a>
-					
-					</div>
+		
+		<div id="content">
+			<div class="banner">
+	<div class="overlay-bg"></div>
+		<div class="form">
+			<div class="container">
+				<h1>How can we help?</h1>
+				<h2>Ask a question or describe the problem you’re having</h2>
+				<div class="form-group">
+					<form method="post" action="#">
+						<input type="text" name="q" autocomplete="off" class="form-control pf-search" data-output="#search-results">
+					</form>
+					<div id="search-results"></div>
 				</div>
-			
-				<div>
-					<a href="#">Themes</a>
-					<div>
-					
-						
-						<a href="/themes/getting-started/">Getting Started</a>
-					
-						
-						<a href="/themes/managing-themes/">Managing Themes</a>
-					
-						
-						<a href="/themes/html/">Editing HTML</a>
-					
-						
-						<a href="/themes/css/">Editing CSS</a>
-					
-						
-						<a href="/themes/javascript/">Editing JavaScript</a>
-					
-					</div>
-				</div>
-			
-			</nav>
+			</div>
 		</div>
+	</div>
+</div>
 
-		<div id="content" class="container-fluid">
-			<div class="row">
+<div class="support-plans">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+
+				<div class="block">
+					<div class="block-header">
+						<span>v3</span>
+						<h2><a href="http://store.phpfox.com/kb/">Nebula Knowledgebase</a></h2>
+						<p>
+							The Classic
+						</p>
+					</div>
+					<div class="block-content">
+						<div class="list-group">
+						
+							<a href="http://store.phpfox.com/kb/article/135/installing-the-product" class="list-group-item">
+								<h4>Installing the Product</h4>
+								<p class="text-muted">Getting Started</p>
+							</a>
+						
+							<a href="http://store.phpfox.com/kb/article/136/upgrading-the-product" class="list-group-item">
+								<h4>Upgrading the Product</h4>
+								<p class="text-muted">Getting Started</p>
+							</a>
+						
+							<a href="http://store.phpfox.com/kb/article/63/short-urls-rewrite-rules" class="list-group-item">
+								<h4>Short URLs & Rewrite Rules</h4>
+								<p class="text-muted">Getting Started</p>
+							</a>
+						
+							<a href="http://store.phpfox.com/kb/article/83/enabling-facebook-connect" class="list-group-item">
+								<h4>Enabling Facebook Connect</h4>
+								<p class="text-muted">Administrator Guide</p>
+							</a>
+						
+						</div>
+					</div>
+				</div>
+
+				<div class="block">
+					<div class="block-header">
+						<i class="fa fa-diamond"></i>
+						<h2><a href="http://store.phpfox.com/support/tickets">Premium Support</a></h2>
+						<p>
+							Get help from our pro support team
+						</p>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-md-4">
+				<div class="block">
+					<div class="block-header">
+						<i class="fa fa-comments"></i>
+						<h2><a href="http://community.phpfox.com/">Community Forum</a></h2>
+						<p>
+							Join our community and get help from other community entrepreneurs
+						</p>
+					</div>
+					<div class="block-content recent-posts">
+						<div class="block-loader"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+					</div>
+				</div>
+
+				<div class="block">
+					<div class="block-header">
+						<i class="fa fa-github"></i>
+						<h2><a href="https://github.com/moxi9/phpfox/issues">Issue Tracker</a></h2>
+						<p>
+							We hope you never have to use this section, but if you found a bug let us know.
+						</p>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-md-4">
+
+				<div class="block">
+					<div class="block-header">
+						<span>v4</span>
+						<h2><a href="/browse/">Neutron Knowledgebase</a></h2>
+						<p>
+							The Future
+						</p>
+					</div>
+					<div class="block-content">
+						<div class="list-group">
+						
+							
+								<a href="/getting-started/requirements/" class="list-group-item">
+									<h4>Requirements</h4>
+									<p class="text-muted">Getting Started</p>
+								</a>
+							
+								<a href="/getting-started/installing-phpfox/" class="list-group-item">
+									<h4>Installing PHPfox</h4>
+									<p class="text-muted">Getting Started</p>
+								</a>
+							
+								<a href="/getting-started/installing-phpfox-with-git/" class="list-group-item">
+									<h4>Installing PHPfox with Git</h4>
+									<p class="text-muted">Getting Started</p>
+								</a>
+							
+						
+							
+								<a href="/themes/getting-started/" class="list-group-item">
+									<h4>Getting Started</h4>
+									<p class="text-muted">Themes</p>
+								</a>
+							
+								<a href="/themes/managing-themes/" class="list-group-item">
+									<h4>Managing Themes</h4>
+									<p class="text-muted">Themes</p>
+								</a>
+							
+								<a href="/themes/html/" class="list-group-item">
+									<h4>Editing HTML</h4>
+									<p class="text-muted">Themes</p>
+								</a>
+							
+								<a href="/themes/css/" class="list-group-item">
+									<h4>Editing CSS</h4>
+									<p class="text-muted">Themes</p>
+								</a>
+							
+								<a href="/themes/javascript/" class="list-group-item">
+									<h4>Editing JavaScript</h4>
+									<p class="text-muted">Themes</p>
+								</a>
+							
+						
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--
+<div class="row">
 	<div class="col-md-8">
 		<div class="alert alert-info">
 			Welcome to our new Knowledgebase. We are currently working on migrating many of the articles we had from our old knowledgebase,
@@ -85,6 +198,66 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Knowledgebase
+			</div>
+			<div class="panel-body">
+				
+					<section>
+						<h1><a href="#">Getting Started</a></h1>
+						
+						<article>
+							
+							<h1><a href="/getting-started/requirements/">Requirements</a></h1>
+						</article>
+						
+						<article>
+							
+							<h1><a href="/getting-started/installing-phpfox/">Installing PHPfox</a></h1>
+						</article>
+						
+						<article>
+							
+							<h1><a href="/getting-started/installing-phpfox-with-git/">Installing PHPfox with Git</a></h1>
+						</article>
+						
+					</section>
+				
+					<section>
+						<h1><a href="#">Themes</a></h1>
+						
+						<article>
+							
+							<h1><a href="/themes/getting-started/">Getting Started</a></h1>
+						</article>
+						
+						<article>
+							
+							<h1><a href="/themes/managing-themes/">Managing Themes</a></h1>
+						</article>
+						
+						<article>
+							
+							<h1><a href="/themes/html/">Editing HTML</a></h1>
+						</article>
+						
+						<article>
+							
+							<h1><a href="/themes/css/">Editing CSS</a></h1>
+						</article>
+						
+						<article>
+							
+							<h1><a href="/themes/javascript/">Editing JavaScript</a></h1>
+						</article>
+						
+					</section>
+				
+			</div>
+		</div>
+
 	</div>
 	<div class="col-md-4">
 		<div class="panel panel-default">
@@ -95,7 +268,9 @@
 		</div>
 	</div>
 </div>
+-->
 		</div>
+		
 
 		
 
@@ -104,6 +279,7 @@
 		<script src="//cdn.jsdelivr.net/jquery.magnific-popup/1.0.0/jquery.magnific-popup.min.js"></script>
 		<script src="//cdn.jsdelivr.net/highlight.js/8.6/highlight.min.js"></script>
 
-		<script src="/assets/js/main.js?v=1"></script>
+		<script src="/assets/js/main.js?v=3"></script>
+		<script src="/assets/js/search.js?v=3"></script>
 	</body>
 </html>
