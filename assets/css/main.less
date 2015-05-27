@@ -1,5 +1,5 @@
 
-@body-bg: #f6f6f6;
+@body-bg: #ececec;
 @primary-bg: #F47D30;
 @primary-bg-color: #fff;
 
@@ -38,6 +38,7 @@ a, a:hover, a:focus {
 	z-index:300;
 
 	h1 {
+		display:inline-block;
 		height:70px;
 		line-height:70px;
 		margin:0px;
@@ -54,6 +55,33 @@ a, a:hover, a:focus {
 				color:#b3b3b3;
 				font-weight:300;
 			}
+		}
+	}
+
+	h2::before {
+		color: #e2e2e2;
+		content: "/";
+		display: inline-block;
+		font-size: 20px;
+		font-weight: 500;
+		margin-right: 6px;
+		vertical-align: middle;
+	}
+
+	h2 {
+		display:inline-block;
+		color: #f47d30;
+		float: none;
+		font-size: 12px;
+		font-weight: 500;
+		line-height: 70px;
+		margin-left: 5px;
+		margin-top: 0;
+		text-transform: uppercase;
+		vertical-align: top;
+
+		a, a:hover {
+			color:#f47d30;
 		}
 	}
 }
@@ -108,10 +136,13 @@ a, a:hover, a:focus {
 }
 
 #content {
-	margin:90px 0px 50px 270px;
+	margin:70px 0px 50px 0px;
 }
 
-.article {
+#content.article {
+	margin-top:90px;
+	margin-left:270px;
+
 	h1:first-of-type {
 		margin-top:0px;
 		border-bottom:1px darken(#fff, 10%) solid;
@@ -166,7 +197,7 @@ blockquote {
 .search {
 	margin-bottom:20px;
 
-	input[type="text"] {
+	input[type="text"], input[type="text"]:focus {
 		background:darken(@nav-bg, 5%);
 		text-indent:10px;
 		border:0px;
@@ -281,4 +312,217 @@ code:not(.hljs) {
 	display:block;
 	/*max-width:600px;*/
 	margin:5px 0px;
+}
+
+.overlay-bg {
+	background: rgba(0, 0, 0, 0) radial-gradient(ellipse closest-corner at 50% 55% , rgba(0, 0, 0, 0.57) 1%, rgba(0, 0, 0, 0.8) 100%) repeat scroll 0 0;
+	bottom: 0;
+	left: 0;
+	opacity: 0.8;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transform: translate3d(0px, 0px, 0px);
+	transition: all 0.3s ease-in-out 0s;
+	z-index: 0;
+}
+
+.banner {
+	height:250px;
+	position:relative;
+	background:url('../img/support.jpg') no-repeat;
+	background-size:cover;
+	background-attachment:fixed;
+	color:#fff;
+	margin-bottom:40px;
+	position:relative;
+
+	.container {
+		position:relative;
+	}
+
+	h1, h2 {
+		color:#fff;
+	}
+
+	h2 {
+		font-size:22px;
+		position:absolute;
+		right:20px;
+		top:15px;
+	}
+
+	.form {
+		position:absolute;
+		bottom:10px;
+		left:0px;
+		right:0px;
+
+		input[type="text"].form-control, input[type="text"].form-control:focus {
+			padding:15px;
+			border:0px;
+			outline:none;
+			height:auto;
+			box-shadow:none;
+			font-size:16px;
+		}
+
+		.form-group {
+			position:relative;
+		}
+	}
+}
+
+#search-results {
+	display:none;
+	background:#fff;
+	position:absolute;
+	left:0px;
+	right:0px;
+	top:50px;
+	z-index:100;
+
+	a, a:hover {
+		display:block;
+		color:#808080;
+		padding:12px;
+		font-size:15px;
+		border-top:1px lighten(#dfdfdf, 5%) solid;
+		text-decoration:none;
+
+		-moz-transition: none;
+		-webkit-transition: none;
+		-o-transition: color 0 ease-in;
+		transition: none;
+
+		p {
+			display:block;
+			margin:0px;
+			padding:8px 0px 0px 0px;
+			color:lighten(#808080, 10%);
+			font-size:12px;
+		}
+	}
+
+	a.blank {
+		display:none;
+	}
+
+	a:hover {
+		background:#f8f8f8;
+	}
+
+	a.focus {
+		background:@primary-bg;
+		color:@primary-bg-color;
+
+		p {
+			color:#fff;
+		}
+
+		-moz-transition: none;
+		-webkit-transition: none;
+		-o-transition: color 0 ease-in;
+		transition: none;
+
+		mark {
+			background:#fff;
+			color:#222;
+		}
+	}
+}
+
+.support-plans {
+	text-align:center;
+}
+
+.block-content {
+	text-align:left;
+}
+
+.block {
+	background:lighten(#0c0c0c, 20%);
+	padding:20px 10px 10px 10px;
+	margin-bottom:20px;
+
+	.list-group {
+		margin:0px -10px -10px -10px;
+	}
+
+	.block-header {
+		cursor:pointer;
+
+		> i {
+			font-size:60px;
+			margin:auto;
+			color:lighten(#808080, 25%);
+		}
+
+		> span {
+			font-size:60px;
+			line-height:normal;
+			font-weight:600;
+			color:lighten(#808080, 30%);
+		}
+
+		> p {
+			color:#808080;
+			display:block;
+			margin-bottom:30px;
+		}
+	}
+
+	h2 {
+		font-size:24px;
+		margin-bottom:10px;
+		color:#fff;
+
+		a, a:hover {
+			color:#fff;
+			text-decoration:none;
+		}
+	}
+}
+
+.block:hover {
+	background:#fff;
+	transition:all 0.55s ease;
+	box-shadow: inset 2px 0px 48px 5px rgba(0,0,0,0.2);
+
+	h2 {
+		color:#222;
+
+		a, a:hover {
+			color:#222;
+		}
+	}
+}
+
+.block-loader {
+	text-align:center;
+	padding:10px;
+}
+
+.list-group-item {
+	padding:5px 10px;
+	border-left:0px;
+	border-right:0px;
+	border-color:lighten(#dfdfdf, 5%);
+
+	.text-muted {
+		color:darken(#dfdfdf, 5%);
+	}
+}
+
+.list-group-item:last-child {
+	border-bottom:0px;
+}
+
+a.list-group-item:hover {
+	background:#f8f8f8;
+}
+
+mark {
+	background:@primary-bg;
+	color:@primary-bg-color;
 }

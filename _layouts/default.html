@@ -3,12 +3,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>{{ page.title }} - PHPfox Docs</title>
-		{% assign version = 1 %}
+		{% assign version = 3 %}
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
 		<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.4/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.magnific-popup/1.0.0/magnific-popup.css">
-		<link rel="stylesheet" href="http://cdn.jsdelivr.net/fontawesome/4.3.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.3.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/8.6/styles/default.min.css">
 
 		<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
@@ -20,10 +20,16 @@
 	<body>
 		<div id="header">
 			<div class="container">
-				<h1><a href="http://phpfox.com/">PHP<span>fox</span></a></h1>
+				<h1><a href="http://www.phpfox.com/">PHP<span>fox</span></a></h1>
+				<h2><a href="/">Support</a></h2>
 			</div>
 		</div>
 
+		{% if page.url == "/index.html" %}
+		<div id="content">
+			{{ content }}
+		</div>
+		{% else %}
 		<div id="panel">
 			<form method="get" class="search">
 				<input type="text" name="q" placeholder="Search..." autocomplete="off">
@@ -44,10 +50,10 @@
 			{% endfor %}
 			</nav>
 		</div>
-
-		<div id="content" class="container-fluid{% if page.url != "/index.html" %} article{% endif %}">
+		<div id="content" class="container-fluid article">
 			{{ content }}
 		</div>
+		{% endif %}
 
 		{% if page.url != "/index.html" %}
 			<div class="links">
@@ -63,5 +69,6 @@
 		<script src="//cdn.jsdelivr.net/highlight.js/8.6/highlight.min.js"></script>
 
 		<script src="/assets/js/main.js?v={{ version }}"></script>
+		<script src="/assets/js/search.js?v={{ version }}"></script>
 	</body>
 </html>

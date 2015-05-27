@@ -2,7 +2,114 @@
 layout: default
 title: Support
 ---
+<div class="banner">
+	<div class="overlay-bg"></div>
+		<div class="form">
+			<div class="container">
+				<h1>How can we help?</h1>
+				<h2>Ask a question or describe the problem you’re having</h2>
+				<div class="form-group">
+					<form method="post" action="#">
+						<input type="text" name="q" autocomplete="off" class="form-control pf-search" data-output="#search-results">
+					</form>
+					<div id="search-results"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
+<div class="support-plans">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+
+				<div class="block">
+					<div class="block-header">
+						<span>v3</span>
+						<h2><a href="http://store.phpfox.com/kb/">Nebula Knowledgebase</a></h2>
+						<p>
+							The Classic
+						</p>
+					</div>
+					<div class="block-content">
+						<div class="list-group">
+						{% for article in site.data.nebula %}
+							<a href="{{ article.url }}" class="list-group-item">
+								<h4>{{ article.title }}</h4>
+								<p class="text-muted">{{ article.section }}</p>
+							</a>
+						{% endfor %}
+						</div>
+					</div>
+				</div>
+
+				<div class="block">
+					<div class="block-header">
+						<i class="fa fa-diamond"></i>
+						<h2><a href="http://store.phpfox.com/support/tickets">Premium Support</a></h2>
+						<p>
+							Get help from our pro support team
+						</p>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-md-4">
+				<div class="block">
+					<div class="block-header">
+						<i class="fa fa-comments"></i>
+						<h2><a href="http://community.phpfox.com/">Community Forum</a></h2>
+						<p>
+							Join our community and get help from other community entrepreneurs
+						</p>
+					</div>
+					<div class="block-content recent-posts">
+						<div class="block-loader"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+					</div>
+				</div>
+
+				<div class="block">
+					<div class="block-header">
+						<i class="fa fa-github"></i>
+						<h2><a href="https://github.com/moxi9/phpfox/issues">Issue Tracker</a></h2>
+						<p>
+							We hope you never have to use this section, but if you found a bug let us know.
+						</p>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-md-4">
+
+				<div class="block">
+					<div class="block-header">
+						<span>v4</span>
+						<h2><a href="/browse/">Neutron Knowledgebase</a></h2>
+						<p>
+							The Future
+						</p>
+					</div>
+					<div class="block-content">
+						<div class="list-group">
+						{% for menu in site.data.menu %}
+							{% for doc in menu.docs %}
+								<a href="/{{ menu.url }}/{{ doc.url }}/" class="list-group-item">
+									<h4>{{ doc.title }}</h4>
+									<p class="text-muted">{{ menu.name }}</p>
+								</a>
+							{% endfor %}
+						{% endfor %}
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--
 <div class="row">
 	<div class="col-md-8">
 		<div class="alert alert-info">
@@ -14,6 +121,26 @@ title: Support
 				</div>
 			</div>
 		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Knowledgebase
+			</div>
+			<div class="panel-body">
+				{% for menu in site.data.menu %}
+					<section>
+						<h1><a href="#">{{ menu.name }}</a></h1>
+						{% for doc in menu.docs %}
+						<article>
+							{% capture url %}/{{ menu.url }}/{{ doc.url }}/index.html{% endcapture %}
+							<h1><a href="/{{ menu.url }}/{{ doc.url }}/"{% if page.url == url %} class="active"{% endif %}>{{ doc.title }}</a></h1>
+						</article>
+						{% endfor %}
+					</section>
+				{% endfor %}
+			</div>
+		</div>
+
 	</div>
 	<div class="col-md-4">
 		<div class="panel panel-default">
@@ -24,3 +151,4 @@ title: Support
 		</div>
 	</div>
 </div>
+-->
