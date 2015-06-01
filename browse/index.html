@@ -1,0 +1,18 @@
+---
+title: Browse PHPfox Support Articles
+layout: default
+---
+<div id="browse" class="container">
+	{% for menu in site.data.menu %}
+		<section>
+			<i class="fa fa-{{ menu.icon }}"></i>
+			<h1>{{ menu.name }}</h1>
+			{% for doc in menu.docs %}
+				<article>
+					{% capture url %}/{{ menu.url }}/{{ doc.url }}/index.html{% endcapture %}
+					<h1><a href="/{{ menu.url }}/{{ doc.url }}/"{% if page.url == url %} class="active"{% endif %}>{{ doc.title }}</a></h1>
+				</article>
+			{% endfor %}
+		</section>
+	{% endfor %}
+</div>

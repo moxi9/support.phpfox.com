@@ -526,3 +526,48 @@ mark {
 	background:@primary-bg;
 	color:@primary-bg-color;
 }
+
+#browse {
+	max-width:550px;
+
+	section {
+		margin-top:30px;
+		background:#fff;
+		padding:20px 20px 20px 20px;
+		position:relative;
+
+		> i {
+			font-size:50px;
+			position:absolute;
+			right:20px;
+			top:20px;
+			color:lighten(#808080, 40%);
+		}
+
+		> h1 {
+			margin:0px;
+			padding:0px;
+			line-height:normal;
+			color:@primary-bg;
+		}
+
+		article {
+			padding-top:10px;
+
+			h1 {
+				font-size:18px;
+				margin:0px;
+				padding:0px;
+
+				a, a:hover {
+					color:lighten(#808080, 10%);
+					text-decoration:none;
+				}
+
+				a:hover {
+					color:#222;
+				}
+			}
+		}
+	}
+}

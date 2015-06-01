@@ -25,7 +25,7 @@
 			</div>
 		</div>
 
-		{% if page.url == "/index.html" %}
+		{% if page.url == "/index.html" or page.url == "/browse/index.html" %}
 		<div id="content">
 			{{ content }}
 		</div>
@@ -55,7 +55,7 @@
 		</div>
 		{% endif %}
 
-		{% if page.url != "/index.html" %}
+		{% if page.url != "/index.html" and page.url != "/browse/index.html" %}
 			<div class="links">
 				<a href="https://github.com/moxi9/support.phpfox.com/blob/master{{ page.url|replace:'.html','.md' }}" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
