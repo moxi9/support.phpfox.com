@@ -472,3 +472,41 @@ mark {
   background: #f47d30;
   color: #ffffff;
 }
+#browse {
+  max-width: 550px;
+}
+#browse section {
+  margin-top: 30px;
+  background: #fff;
+  padding: 20px 20px 20px 20px;
+  position: relative;
+}
+#browse section > i {
+  font-size: 50px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: #e6e6e6;
+}
+#browse section > h1 {
+  margin: 0px;
+  padding: 0px;
+  line-height: normal;
+  color: #f47d30;
+}
+#browse section article {
+  padding-top: 10px;
+}
+#browse section article h1 {
+  font-size: 18px;
+  margin: 0px;
+  padding: 0px;
+}
+#browse section article h1 a,
+#browse section article h1 a:hover {
+  color: #9a9a9a;
+  text-decoration: none;
+}
+#browse section article h1 a:hover {
+  color: #222;
+}

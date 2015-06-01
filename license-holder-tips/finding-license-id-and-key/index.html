@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
-		<title>Managing Themes with PHPfox - PHPfox Docs</title>
+		<title>Finding your License ID &amp; Key - PHPfox Docs</title>
 		
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -58,7 +58,7 @@
 						<a href="/themes/getting-started/">Getting Started</a>
 					
 						
-						<a href="/themes/managing-themes/" class="active">Managing Themes</a>
+						<a href="/themes/managing-themes/">Managing Themes</a>
 					
 						
 						<a href="/themes/html/">Editing HTML</a>
@@ -77,7 +77,7 @@
 					<div>
 					
 						
-						<a href="/license-holder-tips/finding-license-id-and-key/">Finding your License ID &amp; Key</a>
+						<a href="/license-holder-tips/finding-license-id-and-key/" class="active">Finding your License ID &amp; Key</a>
 					
 					</div>
 				</div>
@@ -85,28 +85,38 @@
 			</nav>
 		</div>
 		<div id="content" class="container-fluid article">
-			<h1 id="managing-themes-with-phpfox">Managing Themes with PHPfox</h1>
-<p><img src="/assets/img/managing-a-theme.png" alt="" /></p>
+			<h1 id="finding-your-license-id-amp-key">Finding your License ID &amp; Key</h1>
 
-<p>Each theme comes with the ability to add several <strong>Flavors</strong>. Flavors control the color scheme for your theme. When you first
-open the Theme Manager it will allow you to manage the base controllers for a flavor. This is from colors, fonts, dimensions.</p>
+<p>When installing an app or theme and if you are asked to enter your sites License ID and Key, there are several ways you can attain this information.</p>
 
-<p>You can also export and set a theme as the sites default theme from here.</p>
+<h2 id="option-1-access-license-key-from-web-server">Option 1: Access license key from web server</h2>
 
-<p><a href="/themes/html/" class="next">Editing HTML</a></p>
+<p>If you are running Neutron (v4 or higher) you can access your sites license information by opening the file <strong>/PF.Base/file/settings/license.sett.php</strong>.</p>
 
-<blockquote>
-  <p><strong>Developers Note:</strong>
-<em>We use <a href="http://lesscss.org/">Less</a> as our CSS pre-preprocessor.</em>
-The variables found within the Theme Manager are from the file: <strong>/PF.Site/themes/{$THEME_ID}/flavor/{$FLAVOR_ID}.less</strong></p>
-</blockquote>
+<p>In that file you will find something like:</p>
+<pre><code class="php">define('PHPFOX_LICENSE_ID', 'c5daa43d32eabb6da3e3ad6966ffa87d');
+define('PHPFOX_LICENSE_KEY', 'f353c6edf0293240a372d7876f27832f');
+</code></pre>
+
+<p>The 32 character jumble of letters and numbers is your license ID and Key.</p>
+
+<h2 id="option-2-access-license-via-email">Option 2: Access license via email</h2>
+
+<p>If you are running Neutron or Nebula (v3 or v4), and purchased the product after <strong>May 25th, 2015</strong> we send out an email directly after a purchase
+has been made with your license ID and key. If you cannot find this email and are unable to access your license file via <strong>Option 1</strong>, feel free to get in <a href="http://www.phpfox.com/contact/">touch with us</a>.</p>
+
+<h2 id="option-3-access-license-via-clients-dashboard">Option 3: Access license via Clients Dashboard</h2>
+
+<p>If you have purchased any version of PHPfox before <strong>May 25th, 2015</strong> you can access all your licenses via our <a href="http://store.phpfox.com/sites">Store</a>.</p>
+
+<p>Once you have logged in, click on any of your sites and then click <strong>Manage</strong>. You will then find your license ID and Key.</p>
 
 		</div>
 		
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/themes/managing-themes/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/license-holder-tips/finding-license-id-and-key/index.md" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>
