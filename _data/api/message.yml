@@ -1,0 +1,55 @@
+title: Message API
+info: Messages
+return:
+  - id: (int) Thread ID
+    preview: (string) Message preview of last sender
+    time: (int) Time stamp
+    users: (array) Users
+apis:
+  - endpoint: /message
+    info: Get messages
+    accept: GET
+    returns:
+      type: array
+      fields: _parent
+    run:
+      auth: true
+
+  - endpoint: /message/thread/:id
+    info: Get message thread
+    accept: GET
+    returns:
+      type: object
+      fields:
+        - thread:
+          - id: (int) Thread ID
+            time: (int) Time stamp
+            users: (array) Users
+        - messages:
+          - id: (int) Message ID
+            message: (string) Message
+            time: (int) Time stamp
+            user: (object) User
+    run:
+      endpoint: Thread ID#
+
+  - endpoint: /message/thread/:id
+    info: Add a message to a thread
+    accept: POST
+    run:
+      auth: true
+      endpoint: Thread ID#
+      message: Message
+
+  - endpoint: /message/:id
+    info: Get a message
+    accept: GET
+    returns:
+      type: object
+      fields:
+        - id: (int) Message ID
+          message: (string) Message
+          time: (int) Time stamp
+          user: (object) User
+    run:
+      endpoint: Message ID#

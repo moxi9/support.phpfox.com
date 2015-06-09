@@ -1,0 +1,53 @@
+title: Activity Feed API
+info: Access to activity feed. Used to add any base content for the site and is open to custom fields, which is based on passing JSON. Each feed is connected to the Like & Comment app.
+return:
+  - id: (int) ID of the user.
+    name: (string) First and Last name.
+    url: (string) URL to the users profile.
+    gender:
+      - id: ID of gender.
+      - name: Phrase for gender.
+    photo:
+      - 50px: 50px profile photo.
+      - 120px: 120px profile photo.
+      - 200px: 200px profile photo.
+      - original: Original profile photo.
+apis:
+  - endpoint: /user
+    info: Gets an array of users.
+    accept: GET
+    returns:
+      type: array
+      fields: _parent
+    run: __all
+
+  - endpoint: /user/:id
+    info: Get a specific user.
+    accept: GET
+    returns:
+      type: object
+      fields: _parent
+    run:
+      endpoint: User ID#
+
+  - endpoint: /user
+    info: Creates a new user.
+    accept: POST
+    returns:
+      type: object
+      fields: _parent
+    run:
+      name: Name
+      email: Email
+      password: Password
+
+  - endpoint: /user/:id
+    info: Updates a specific user.
+    accept: PUT
+    returns:
+      type: object
+      fields: _parent
+    run:
+      endpoint: User ID#
+      name: Name
+      username: Username

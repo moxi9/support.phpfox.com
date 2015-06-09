@@ -12,6 +12,50 @@
     - title: Installing PHPfox with Git
       url: installing-phpfox-with-git
 
+- name: Apps
+  url: apps
+  icon:
+  docs:
+    - title: Getting Started
+      url: getting-started
+
+    - title: File Structure
+      url: file-structure
+
+    - title: Configuration
+      url: configuration
+
+    - title: Page Routing
+      url: routing
+
+    - title: Controllers
+      url: controllers
+
+    - title: Models and the Database
+      url: models-and-database
+
+    - title: API Access
+      url: api
+
+- name: API Reference
+  url: api
+  icon:
+  docs:
+    - title: Activity Feed
+      url: feed
+
+    - title: User
+      url: user
+
+    - title: Like
+      url: like
+
+    - title: Comment
+      url: comment
+
+    - title: Message
+      url: message
+
 - name: Themes
   url: themes
   icon: paint-brush

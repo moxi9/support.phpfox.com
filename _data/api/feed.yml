@@ -1,0 +1,59 @@
+
+title: Activity Feed API
+info: Access to activity feed. Used to add any base content for the site and is open to custom fields, which is based on passing JSON. Each feed is connected to the Like & Comment app.
+return:
+  - id: (int) ID of the activity feed.
+    content: (string|object) Content for the feed. If it is a JSON (string), this will return as an (object).
+    total_likes: (int) Total number of likes.
+    total_comments: (int) Total number of comments.
+    user: (object) <a href="/api/user/#/user/:id-GET">User Object</a>
+    custom: (object)
+apis:
+  - endpoint: /feed
+    info: Gets an array of activity feeds.
+    accept: GET
+    returns:
+      type: array
+      fields: _parent
+    run: __all
+
+  - endpoint: /feed/:id
+    info: Get a single feed.
+    returns:
+      type: object
+      fields: _parent
+    accept: GET
+    run:
+      endpoint: Feed ID#
+
+  - endpoint: /feed
+    info: Creates a new activity feed. Returns the feeds (object) on success.
+    accept: POST
+    requires:
+      - user_id: (int) ID of the user.
+      - content: (string|object) String of what you wish to display in the feed. If you insert JSON (string) it will return as an (object).
+    returns:
+      type: object
+      fields: _parent
+    run:
+        content: Feed Content
+        user_id: User ID#
+
+  - endpoint: /feed/:id
+    info: Deletes an activity feed.
+    accept: DELETE
+    returns:
+      type: boolean
+
+  - endpoint: /feed/:id
+    info: Updates a feed. On success it returns the feed (object) or (false).
+    requires:
+      - content: String of what you wish to display in the feed. If you insert JSON (string) it will return as an (object).
+    accept: PUT
+    returns:
+      type: object
+      fields: _parent
+    run:
+        content: Updating Feed via API (time)
+        endpoint: /feed/1
+

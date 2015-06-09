@@ -1,0 +1,18 @@
+title: Like API
+info: Like a feed
+apis:
+  - endpoint: /like/:id
+    info: Like a feed
+    accept: POST
+    returns:
+      type: boolean
+    run:
+      auth: true
+      endpoint: Feed ID#
+
+  - endpoint: /like/:id
+    info: Unlike a feed
+    accept: DELETE
+    run:
+      auth: true
+      endpoint: Feed ID#

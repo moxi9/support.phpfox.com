@@ -1,0 +1,30 @@
+title: Comment API
+info: Comment a feed
+apis:
+  - endpoint: /comment
+    info: Get comments
+    accept: GET
+    run:
+      feed_id: Feed ID#
+
+  - endpoint: /comment/:id
+    info: Get a comment
+    accept: GET
+    run:
+      endpoint: Comment ID#
+
+  - endpoint: /comment
+    info: Comment a feed
+    accept: POST
+    returns:
+      type: boolean
+    run:
+      auth: true
+      feed_id: Feed ID#
+      comment: Comment
+
+  - endpoint: /comment/:id
+    info: Comment a feed
+    accept: DELETE
+    run:
+      endpoint: Comment ID#
