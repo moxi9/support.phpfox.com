@@ -304,6 +304,7 @@ code:not(.hljs) {
   display: block;
   /*max-width:600px;*/
   margin: 5px 0px;
+  white-space: pre;
 }
 .overlay-bg {
   background: rgba(0, 0, 0, 0) radial-gradient(ellipse closest-corner at 50% 55%, rgba(0, 0, 0, 0.57) 1%, rgba(0, 0, 0, 0.8) 100%) repeat scroll 0 0;

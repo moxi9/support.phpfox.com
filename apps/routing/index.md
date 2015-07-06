@@ -14,7 +14,7 @@ This method of creating a route is for smaller apps that do not need a PHP class
 app folder open the file **start.php**. In that file add the following:
 <pre><code class="php"><?php
 
-(new Core\Route('/hello-world'))->run(function() {
+new Core\Route('/hello-world', function() {
     echo "Hello World!";
 });</code></pre>
 
@@ -23,17 +23,8 @@ Once you saved the file, visit your site by going to <mark>http://localhost/hell
 If all goes well, you should see a blank page with just **Hello World!**
 
 You have created your first route! Let's take a look at what we have done thus far. In order to create a new route we access
-our **Core** class **Route**. The same code above could look like this instead.
-
-<pre><code class="php"><?php
-
-$Route = new Core\Route('/hello-world');
-$Route->run(function() {
-	echo "Hello World!";
-});
-</code></pre>
-
-The **run** function accepts a callback and anything you echo in that file will be output to the browser.
+our **Core** class **Route**. The first argument is the route (e.g. url) to connect your callback. The 2nd argument is the callback.
+Anything you echo in the callback will be output to the browser when the route is valid.
 
 ## Adding a View
 
@@ -44,7 +35,7 @@ For this example lets create a file called **hello-world.html** in the **/views/
 Next, lets go back to our **start.php** and replace that file with
 <pre><code class="php"><?php
 
-(new Core\Route('/hello-world'))->run(function(Core\Controller $Controller) {
+new Core\Route('/hello-world', function(Core\Controller $Controller) {
 
     return $Controller->render('hello-world.html');
 });</code></pre>
@@ -54,5 +45,5 @@ Now when you visit <mark>http://localhost/hello-world</mark> you will find *"Hel
 We now added a **return** using the **render** function, which is part of the **Core\Controller** class.
 <pre><code class="php">return $Controller->render('hello-world.html');</code></pre>
 
-<a href="/apps/controllers/" class="next">Route to Controllers</a>
+<a href="/apps/route-grouping/" class="next">Grouping your Routes</a>
 

@@ -30,7 +30,7 @@ apis:
     info: Creates a new activity feed. Returns the feeds (object) on success.
     accept: POST
     requires:
-      - user_id: (int) ID of the user.
+      - type_id: (string) Identify the type of feed. This is usually your App ID.
       - content: (string|object) String of what you wish to display in the feed. If you insert JSON (string) it will return as an (object).
     returns:
       type: object

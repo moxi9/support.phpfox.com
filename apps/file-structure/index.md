@@ -46,6 +46,6 @@ If an app has a file named *autoload.css*, we will include it on every page.
 
 In the default less file we provide it imports the variables from our Base variable file.
 
-<pre><code class="css">@import "../../../../../PF.Base/less/variables";</code></pre>
+<pre><code class="css">@import "../../../../PF.Base/less/variables";</code></pre>
 
 <a href="/apps/configuration/" class="next">App Configuration with app.json</a>

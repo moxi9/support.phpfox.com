@@ -39,3 +39,5 @@ We use HTTP Basic Authentication to pass the ID & Key.
 
 Here is the API at its most basic form using cURL.
 <pre><code class="curl">curl -X GET -u {AUTH_ID}:{AUTH_PASS} http://localhost/api/user/</code></pre>
+
+<a href="/apps/examples-and-resources/" class="next">Check out some Examples & Resources</a>

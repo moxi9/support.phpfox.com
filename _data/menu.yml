@@ -28,14 +28,20 @@
     - title: Page Routing
       url: routing
 
-    - title: Controllers
-      url: controllers
+    - title: Route Grouping
+      url: route-grouping
 
-    - title: Models and the Database
+    - title: Models, Database & Autoloading
       url: models-and-database
+
+    - title: Forms & Form Validation
+      url: forms-and-validation
 
     - title: API Access
       url: api
+
+    - title: Examples & Resources
+      url: examples-and-resources
 
 - name: API Reference
   url: api
@@ -74,6 +80,12 @@
 
     - title: Editing JavaScript
       url: javascript
+
+- name: Admin Tips
+  url: admin-tips
+  docs:
+    - title: Changing your Sites Favicon
+      url: changing-your-sites-favicon
 
 - name: License Holder Tips
   url: license-holder-tips
