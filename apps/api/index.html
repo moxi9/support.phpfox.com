@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
-		<title>Editing your sites Javascript with PHPfox - PHPfox Docs</title>
+		<title>Working with the API - PHPfox Docs</title>
 		
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -76,7 +76,7 @@
 						<a href="/apps/forms-and-validation/">Forms & Form Validation</a>
 					
 						
-						<a href="/apps/api/">API Access</a>
+						<a href="/apps/api/" class="active">API Access</a>
 					
 						
 						<a href="/apps/examples-and-resources/">Examples & Resources</a>
@@ -123,7 +123,7 @@
 						<a href="/themes/css/">Editing CSS</a>
 					
 						
-						<a href="/themes/javascript/" class="active">Editing JavaScript</a>
+						<a href="/themes/javascript/">Editing JavaScript</a>
 					
 					</div>
 				</div>
@@ -151,25 +151,51 @@
 			</nav>
 		</div>
 		<div id="content" class="container-fluid article">
-			<h1 id="editing-your-themes-javascript">Editing your Themes Javascript</h1>
-<p><img src="/assets/img/editing-javascript.png" alt="" /></p>
+			<h1 id="working-with-the-api">Working with the API</h1>
 
-<p>When you are working with JavaScript you need to make sure to place any code within our <strong>$Ready</strong> function. This function is called
-whenever a page is loaded and is fired when the document is ready.</p>
+<p>You can access the products API internally via your PHP app files or externally via REST.</p>
 
-<p>We use <a href="https://jquery.com/">jQuery</a> as our main library of choice.</p>
+<h2 id="internal-access">Internal Access</h2>
 
-<pre><code class="javascript">$Ready(function() {
-	// add JS here... jQuery is supported!
-});
-</code></pre>
+<p>To access the API internally, we use PHP namespaces to connect to the PHP class files. Since the API is also built
+to respect the RESTful architecture (e.g. GET, PUT, DELETE, POST), the function names for each resource uses the request method.</p>
+
+<p>As a quick example, if we wanted to retrieve info about a user the PHP code would be</p>
+<pre><code class="php">$User = new \Api\User();
+$object = $User-&gt;get(1);</code></pre>
+
+<p>This will retrieve a user, with the USER ID# 1. Translated to REST it would be <mark>http://localhost/api/user/1</mark></p>
+
+<p>Let’s try another example. Say we wanted to get a list of users. The REST URL would be <mark>http://localhost/api/user</mark>.</p>
+
+<p>Using PHP this would then be</p>
+<pre><code class="php">$User = new \Api\User();
+$object = $User-&gt;get();</code></pre>
+
+<p>The code looks similar to what we added earlier, however this time we did not pass the User ID# 1 and instead just called the
+<strong>-&gt;get()</strong> method directly. This will now return an array of users.</p>
+
+<h2 id="external-access">External Access</h2>
+
+<p>If you prefer to develop your app externally or you need RESTful access because you are developing an iPhone app you can access
+a clients site by using a unique ID and Key we provide to you when a client installs your product.</p>
+
+<p>This requires setting up a Developers Account with us so you can provide a webhook URL so we can send you the clients
+endpoint and unique authentication ID and Key. Once you have this information you will be able to access the clients API resources.</p>
+
+<p>We use HTTP Basic Authentication to pass the ID &amp; Key.</p>
+
+<p>Here is the API at its most basic form using cURL.</p>
+<pre><code class="curl">curl -X GET -u {AUTH_ID}:{AUTH_PASS} http://localhost/api/user/</code></pre>
+
+<p><a href="/apps/examples-and-resources/" class="next">Check out some Examples &amp; Resources</a></p>
 
 		</div>
 		
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/themes/javascript/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/api/index.md" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>

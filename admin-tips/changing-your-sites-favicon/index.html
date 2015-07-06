@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
-		<title>Editing your sites Javascript with PHPfox - PHPfox Docs</title>
+		<title>Changing your Sites Favicon - PHPfox Docs</title>
 		
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -123,7 +123,7 @@
 						<a href="/themes/css/">Editing CSS</a>
 					
 						
-						<a href="/themes/javascript/" class="active">Editing JavaScript</a>
+						<a href="/themes/javascript/">Editing JavaScript</a>
 					
 					</div>
 				</div>
@@ -133,7 +133,7 @@
 					<div>
 					
 						
-						<a href="/admin-tips/changing-your-sites-favicon/">Changing your Sites Favicon</a>
+						<a href="/admin-tips/changing-your-sites-favicon/" class="active">Changing your Sites Favicon</a>
 					
 					</div>
 				</div>
@@ -151,25 +151,25 @@
 			</nav>
 		</div>
 		<div id="content" class="container-fluid article">
-			<h1 id="editing-your-themes-javascript">Editing your Themes Javascript</h1>
-<p><img src="/assets/img/editing-javascript.png" alt="" /></p>
+			<h1 id="changing-your-sites-favicon">Changing your Sites Favicon</h1>
 
-<p>When you are working with JavaScript you need to make sure to place any code within our <strong>$Ready</strong> function. This function is called
-whenever a page is loaded and is fired when the document is ready.</p>
+<p>To change your sites favicon, which is used to associate with your website when being parsed by external sites or programs
+is to simply add a file called <strong>favicon.ico</strong> in your sites root directory.</p>
 
-<p>We use <a href="https://jquery.com/">jQuery</a> as our main library of choice.</p>
+<p>There are tons of favicon generators online, here is the current top pick from <a href="http://www.favicon-generator.org/">Google</a></p>
 
-<pre><code class="javascript">$Ready(function() {
-	// add JS here... jQuery is supported!
-});
+<p>Once you have added your favicon, you wil need to log into your <strong>AdminCP</strong> and clear your sites cache from</p>
+
+<pre><code>Maintenance &gt; Cache Manager &gt; Clear Cache
 </code></pre>
+
 
 		</div>
 		
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/themes/javascript/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/admin-tips/changing-your-sites-favicon/index.md" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>

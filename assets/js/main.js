@@ -1,8 +1,105 @@
 
+function escapeHtml(text) {
+	return text
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;")
+		.replace(/'/g, "&#039;");
+};
+
+RegExp.escape = function(s) {
+	return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+};
+
+var types = ['string', 'int', 'object'];
+
 var search = false;
 $(document).ready(function() {
 
 	hljs.initHighlightingOnLoad();
+
+	$('td').each(function() {
+		var t = $(this), h = t.html();
+
+		for (var i in types) {
+			h = h.replace(new RegExp(RegExp.escape('(' + types[i] + ')'), 'gi'), '<mark class="var-type-' + types[i] + '">' + types[i] + '</mark>');
+		}
+		t.html(h);
+	});
+
+	$('.api-form').submit(function() {
+		var t = $(this), endpoint = t.find('.api-end-point').val();
+
+		t.find('.btn-default').addClass('hide');
+		t.find('.fa').removeClass('hide');
+
+		if (t.find('.base-end-point').length) {
+			var b = t.find('.base-end-point').val();
+			t.find('.api-end-point').val(endpoint.replace(new RegExp(':id', 'i'), b));
+		}
+
+		var data = t.serialize();
+		t.find('.api-end-point').val(endpoint);
+
+		$.ajax({
+			url: t.attr('action'),
+			type: t.find('.api-form-type').val(),
+			data: data,
+			dataType: 'html',
+			success: function(e) {
+				t.find('.btn-default').removeClass('hide');
+				t.find('.fa').addClass('hide');
+				t.find('.api-response').removeClass('hide').find('code').html(escapeHtml(e));
+			}
+		});
+
+		return false;
+	});
+
+	/*
+	$('.api-test').click(function() {
+		var t = $(this), data = t.find('div').html(), code;
+
+		return false;
+
+		if (data == 'true') {
+			data = '';
+		}
+
+		// console.log(data.toString());
+
+		t.after('<pre class="hide"><code></code></pre>');
+		code = t.parents('.api-info:first').find('code');
+
+		var d = new Date();
+		var n = d.toDateString();
+		var type = t.data('type');
+
+		data = data.replace('(time)', n);
+		data = data.replace(new RegExp('__random__', 'g'), new Date().getTime());
+
+		if (!data) {
+			data = '{}';
+		}
+
+		t.replaceWith('<i class="api-spin fa fa-spin fa-circle-o-notch"></i>');
+		$.ajax({
+			url: 'http://localhost/phpfox/4x_/api' + t.data('endpoint'),
+			type: type,
+			data: ((type != 'GET') ? $.parseJSON(data) : ''),
+			dataType: 'html',
+			beforeSend: function (xhr) {
+
+			},
+			complete: function(e) {
+				code.html(escapeHtml(e));
+				code.parent().removeClass('hide');
+				$('.api-spin').remove();
+			}
+		});
+	});
+	*/
 
 	$('.block-header').click(function() {
 		var t = $(this);

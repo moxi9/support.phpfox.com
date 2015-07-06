@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
-		<title>Editing your sites Javascript with PHPfox - PHPfox Docs</title>
+		<title>Understanding the App File Structure - PHPfox Docs</title>
 		
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -58,7 +58,7 @@
 						<a href="/apps/getting-started/">Getting Started</a>
 					
 						
-						<a href="/apps/file-structure/">File Structure</a>
+						<a href="/apps/file-structure/" class="active">File Structure</a>
 					
 						
 						<a href="/apps/configuration/">Configuration</a>
@@ -123,7 +123,7 @@
 						<a href="/themes/css/">Editing CSS</a>
 					
 						
-						<a href="/themes/javascript/" class="active">Editing JavaScript</a>
+						<a href="/themes/javascript/">Editing JavaScript</a>
 					
 					</div>
 				</div>
@@ -151,25 +151,92 @@
 			</nav>
 		</div>
 		<div id="content" class="container-fluid article">
-			<h1 id="editing-your-themes-javascript">Editing your Themes Javascript</h1>
-<p><img src="/assets/img/editing-javascript.png" alt="" /></p>
+			<h1 id="understanding-the-app-file-structure">Understanding the App File Structure</h1>
 
-<p>When you are working with JavaScript you need to make sure to place any code within our <strong>$Ready</strong> function. This function is called
-whenever a page is loaded and is fired when the document is ready.</p>
+<p>Apps are based on a basic MVC (Model-View-Controller) infrastructure. Model classes give access to our database
+layer, which by default uses MySQLi.</p>
 
-<p>We use <a href="https://jquery.com/">jQuery</a> as our main library of choice.</p>
+<p>For <strong>views</strong> you use HTML and can take advantage of using <a href="http://twig.sensiolabs.org/">Twig</a> as this is our HTML pre-parser for apps.</p>
+
+<p>All apps are located in the folder <strong>/PF.Site/Apps/</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>/assets/</td>
+      <td>Javascript, CSS &amp; Images</td>
+    </tr>
+    <tr>
+      <td>/Controller/</td>
+      <td>PHP controller classes. Used to connect routes to PHP classes.</td>
+    </tr>
+    <tr>
+      <td>/Model/</td>
+      <td>PHP classes you can use to interact with the sites database.</td>
+    </tr>
+    <tr>
+      <td>/views/</td>
+      <td>HTML files to control the look of each page.</td>
+    </tr>
+    <tr>
+      <td>/app.json</td>
+      <td>Main config file for each app.</td>
+    </tr>
+    <tr>
+      <td>/app.lock</td>
+      <td>App is installed when this file exists.</td>
+    </tr>
+    <tr>
+      <td>/start.php</td>
+      <td>File is loaded on every page and is designed to be used to create routes.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="assets">Assets</h2>
+
+<p>When creating a new app we include default JavaScript and CSS assets to get you started.</p>
+
+<p><strong>/assets/autoload.js</strong></p>
+
+<p>If an app has an asset named <em>autoload.js</em>, we load it on every page. This is where you can add any JavaScript you may need.</p>
+
+<blockquote>
+  <p>Note: Make sure to add Javascript/jQuery inside the <strong>$Ready</strong> function as this fires when the document is ready and when any new
+data has been added to the document.</p>
+</blockquote>
 
 <pre><code class="javascript">$Ready(function() {
-	// add JS here... jQuery is supported!
-});
-</code></pre>
+    // JavaScript/jQuery goes here...
+});</code></pre>
+
+<p><strong>/assets/autoload.css</strong></p>
+
+<p>If an app has a file named <em>autoload.css</em>, we will include it on every page.</p>
+
+<blockquote>
+  <p>Note: We create a <strong>autoload.less</strong> file by default and this allows you to work with our less variable. Try to use an IDE with Less support
+or simply rename the file to <strong>autoload.css</strong></p>
+</blockquote>
+
+<p>In the default less file we provide it imports the variables from our Base variable file.</p>
+
+<pre><code class="css">@import "../../../../PF.Base/less/variables";</code></pre>
+
+<p><a href="/apps/configuration/" class="next">App Configuration with app.json</a></p>
 
 		</div>
 		
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/themes/javascript/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/file-structure/index.md" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>

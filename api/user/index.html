@@ -1,0 +1,772 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<title>User API - PHPfox Docs</title>
+		
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.magnific-popup/1.0.0/magnific-popup.css">
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.3.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/8.6/styles/default.min.css">
+
+		<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/assets/css/main.css?v=3">
+
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	</head>
+	<body>
+		<div id="header">
+			<div class="container">
+				<h1><a href="http://www.phpfox.com/">PHP<span>fox</span></a></h1>
+				<h2><a href="/">Support</a></h2>
+			</div>
+		</div>
+
+		
+		<div id="panel">
+			<form method="get" class="search">
+				<input type="text" name="q" placeholder="Search..." autocomplete="off">
+			</form>
+			<div id="results"></div>
+
+			<nav>
+			
+				<div>
+					<a href="#">Getting Started</a>
+					<div>
+					
+						
+						<a href="/getting-started/requirements/">Requirements</a>
+					
+						
+						<a href="/getting-started/installing-phpfox/">Installing PHPfox</a>
+					
+						
+						<a href="/getting-started/installing-phpfox-with-git/">Installing PHPfox with Git</a>
+					
+					</div>
+				</div>
+			
+				<div>
+					<a href="#">Apps</a>
+					<div>
+					
+						
+						<a href="/apps/getting-started/">Getting Started</a>
+					
+						
+						<a href="/apps/file-structure/">File Structure</a>
+					
+						
+						<a href="/apps/configuration/">Configuration</a>
+					
+						
+						<a href="/apps/routing/">Page Routing</a>
+					
+						
+						<a href="/apps/route-grouping/">Route Grouping</a>
+					
+						
+						<a href="/apps/models-and-database/">Models, Database & Autoloading</a>
+					
+						
+						<a href="/apps/forms-and-validation/">Forms & Form Validation</a>
+					
+						
+						<a href="/apps/api/">API Access</a>
+					
+						
+						<a href="/apps/examples-and-resources/">Examples & Resources</a>
+					
+					</div>
+				</div>
+			
+				<div>
+					<a href="#">API Reference</a>
+					<div>
+					
+						
+						<a href="/api/feed/">Activity Feed</a>
+					
+						
+						<a href="/api/user/" class="active">User</a>
+					
+						
+						<a href="/api/like/">Like</a>
+					
+						
+						<a href="/api/comment/">Comment</a>
+					
+						
+						<a href="/api/message/">Message</a>
+					
+					</div>
+				</div>
+			
+				<div>
+					<a href="#">Themes</a>
+					<div>
+					
+						
+						<a href="/themes/getting-started/">Getting Started</a>
+					
+						
+						<a href="/themes/managing-themes/">Managing Themes</a>
+					
+						
+						<a href="/themes/html/">Editing HTML</a>
+					
+						
+						<a href="/themes/css/">Editing CSS</a>
+					
+						
+						<a href="/themes/javascript/">Editing JavaScript</a>
+					
+					</div>
+				</div>
+			
+				<div>
+					<a href="#">Admin Tips</a>
+					<div>
+					
+						
+						<a href="/admin-tips/changing-your-sites-favicon/">Changing your Sites Favicon</a>
+					
+					</div>
+				</div>
+			
+				<div>
+					<a href="#">License Holder Tips</a>
+					<div>
+					
+						
+						<a href="/license-holder-tips/finding-license-id-and-key/">Finding your License ID &amp; Key</a>
+					
+					</div>
+				</div>
+			
+			</nav>
+		</div>
+		<div id="content" class="container-fluid article">
+			
+
+<h1>Activity Feed API</h1>
+<h2 class="api-h2">Access to activity feed. Used to add any base content for the site and is open to custom fields, which is based on passing JSON. Each feed is connected to the Like & Comment app.</h2>
+
+	<section class="api-info" id="/user-GET">
+		<h1>/user</h1>
+		<h2>Gets an array of users.</h2>
+		<span><mark>GET</mark></span>
+
+		
+
+		
+			
+				
+			
+		<h3><span>Returns</span><mark>array</mark></h3>
+		
+		<table>
+			<tr>
+				<th>Key</th>
+				<th>Info</th>
+			</tr>
+		
+			
+			<tr>
+				<td><strong>id</strong></td>
+				<td>
+					
+						
+							
+							(int) ID of the user.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>name</strong></td>
+				<td>
+					
+						
+							
+							(string) First and Last name.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>url</strong></td>
+				<td>
+					
+						
+							
+							(string) URL to the users profile.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>gender</strong></td>
+				<td>
+					
+						
+							
+							<div><strong>id:</strong> ID of gender.</div>
+							
+						
+					
+						
+							
+							<div><strong>name:</strong> Phrase for gender.</div>
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>photo</strong></td>
+				<td>
+					
+						
+							
+							<div><strong>50px:</strong> 50px profile photo.</div>
+							
+						
+					
+						
+							
+							<div><strong>120px:</strong> 120px profile photo.</div>
+							
+						
+					
+						
+							
+							<div><strong>200px:</strong> 200px profile photo.</div>
+							
+						
+					
+						
+							
+							<div><strong>original:</strong> Original profile photo.</div>
+							
+						
+					
+				</td>
+			</tr>
+			
+		
+		</table>
+		
+
+		
+
+		
+		
+
+		<div class="api-test-holder">
+			<h3><mark>API Test</mark></h3>
+			<form method="post" action="http://localhost/phpfox/4x_/PF.Base/vendor/moxi9/phpfox-api-console/" class="api-form">
+				<div><input type="hidden" name="api-form-type" class="api-form-type" value="GET"></div>
+				<div><input type="hidden" name="endpoint" class="api-end-point" value="/user"></div>
+				
+					
+
+					
+				
+				<i class="fa fa-spin fa-circle-o-notch hide"></i>
+				<div><input type="submit" class="btn btn-default" value="Run"></div>
+				<pre class="api-response hide"><code></code></pre>
+			</form>
+		</div>
+
+		
+
+	</section>
+
+	<section class="api-info" id="/user/:id-GET">
+		<h1>/user/:id</h1>
+		<h2>Get a specific user.</h2>
+		<span><mark>GET</mark></span>
+
+		
+
+		
+			
+				
+			
+		<h3><span>Returns</span><mark>object</mark></h3>
+		
+		<table>
+			<tr>
+				<th>Key</th>
+				<th>Info</th>
+			</tr>
+		
+			
+			<tr>
+				<td><strong>id</strong></td>
+				<td>
+					
+						
+							
+							(int) ID of the user.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>name</strong></td>
+				<td>
+					
+						
+							
+							(string) First and Last name.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>url</strong></td>
+				<td>
+					
+						
+							
+							(string) URL to the users profile.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>gender</strong></td>
+				<td>
+					
+						
+							
+							<div><strong>id:</strong> ID of gender.</div>
+							
+						
+					
+						
+							
+							<div><strong>name:</strong> Phrase for gender.</div>
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>photo</strong></td>
+				<td>
+					
+						
+							
+							<div><strong>50px:</strong> 50px profile photo.</div>
+							
+						
+					
+						
+							
+							<div><strong>120px:</strong> 120px profile photo.</div>
+							
+						
+					
+						
+							
+							<div><strong>200px:</strong> 200px profile photo.</div>
+							
+						
+					
+						
+							
+							<div><strong>original:</strong> Original profile photo.</div>
+							
+						
+					
+				</td>
+			</tr>
+			
+		
+		</table>
+		
+
+		
+
+		
+		
+
+		<div class="api-test-holder">
+			<h3><mark>API Test</mark></h3>
+			<form method="post" action="http://localhost/phpfox/4x_/PF.Base/vendor/moxi9/phpfox-api-console/" class="api-form">
+				<div><input type="hidden" name="api-form-type" class="api-form-type" value="GET"></div>
+				<div><input type="hidden" name="endpoint" class="api-end-point" value="/user/:id"></div>
+				
+					
+					<div class="form-group">
+						<label>User ID#</label>
+						<input type="text" name="__endpoint" class="form-control base-end-point" autocomplete="off">
+					</div>
+					
+				
+				<i class="fa fa-spin fa-circle-o-notch hide"></i>
+				<div><input type="submit" class="btn btn-default" value="Run"></div>
+				<pre class="api-response hide"><code></code></pre>
+			</form>
+		</div>
+
+		
+
+	</section>
+
+	<section class="api-info" id="/user-POST">
+		<h1>/user</h1>
+		<h2>Creates a new user.</h2>
+		<span><mark>POST</mark></span>
+
+		
+
+		
+			
+				
+			
+		<h3><span>Returns</span><mark>object</mark></h3>
+		
+		<table>
+			<tr>
+				<th>Key</th>
+				<th>Info</th>
+			</tr>
+		
+			
+			<tr>
+				<td><strong>id</strong></td>
+				<td>
+					
+						
+							
+							(int) ID of the user.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>name</strong></td>
+				<td>
+					
+						
+							
+							(string) First and Last name.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>url</strong></td>
+				<td>
+					
+						
+							
+							(string) URL to the users profile.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>gender</strong></td>
+				<td>
+					
+						
+							
+							<div><strong>id:</strong> ID of gender.</div>
+							
+						
+					
+						
+							
+							<div><strong>name:</strong> Phrase for gender.</div>
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>photo</strong></td>
+				<td>
+					
+						
+							
+							<div><strong>50px:</strong> 50px profile photo.</div>
+							
+						
+					
+						
+							
+							<div><strong>120px:</strong> 120px profile photo.</div>
+							
+						
+					
+						
+							
+							<div><strong>200px:</strong> 200px profile photo.</div>
+							
+						
+					
+						
+							
+							<div><strong>original:</strong> Original profile photo.</div>
+							
+						
+					
+				</td>
+			</tr>
+			
+		
+		</table>
+		
+
+		
+
+		
+		
+
+		<div class="api-test-holder">
+			<h3><mark>API Test</mark></h3>
+			<form method="post" action="http://localhost/phpfox/4x_/PF.Base/vendor/moxi9/phpfox-api-console/" class="api-form">
+				<div><input type="hidden" name="api-form-type" class="api-form-type" value="POST"></div>
+				<div><input type="hidden" name="endpoint" class="api-end-point" value="/user"></div>
+				
+					
+
+						<div class="form-group">
+							<label>Name</label>
+							<input type="text" name="name" class="form-control" autocomplete="off">
+						</div>
+					
+				
+					
+
+						<div class="form-group">
+							<label>Email</label>
+							<input type="text" name="email" class="form-control" autocomplete="off">
+						</div>
+					
+				
+					
+
+						<div class="form-group">
+							<label>Password</label>
+							<input type="text" name="password" class="form-control" autocomplete="off">
+						</div>
+					
+				
+				<i class="fa fa-spin fa-circle-o-notch hide"></i>
+				<div><input type="submit" class="btn btn-default" value="Run"></div>
+				<pre class="api-response hide"><code></code></pre>
+			</form>
+		</div>
+
+		
+
+	</section>
+
+	<section class="api-info" id="/user/:id-PUT">
+		<h1>/user/:id</h1>
+		<h2>Updates a specific user.</h2>
+		<span><mark>PUT</mark></span>
+
+		
+
+		
+			
+				
+			
+		<h3><span>Returns</span><mark>object</mark></h3>
+		
+		<table>
+			<tr>
+				<th>Key</th>
+				<th>Info</th>
+			</tr>
+		
+			
+			<tr>
+				<td><strong>id</strong></td>
+				<td>
+					
+						
+							
+							(int) ID of the user.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>name</strong></td>
+				<td>
+					
+						
+							
+							(string) First and Last name.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>url</strong></td>
+				<td>
+					
+						
+							
+							(string) URL to the users profile.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>gender</strong></td>
+				<td>
+					
+						
+							
+							<div><strong>id:</strong> ID of gender.</div>
+							
+						
+					
+						
+							
+							<div><strong>name:</strong> Phrase for gender.</div>
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>photo</strong></td>
+				<td>
+					
+						
+							
+							<div><strong>50px:</strong> 50px profile photo.</div>
+							
+						
+					
+						
+							
+							<div><strong>120px:</strong> 120px profile photo.</div>
+							
+						
+					
+						
+							
+							<div><strong>200px:</strong> 200px profile photo.</div>
+							
+						
+					
+						
+							
+							<div><strong>original:</strong> Original profile photo.</div>
+							
+						
+					
+				</td>
+			</tr>
+			
+		
+		</table>
+		
+
+		
+
+		
+		
+
+		<div class="api-test-holder">
+			<h3><mark>API Test</mark></h3>
+			<form method="post" action="http://localhost/phpfox/4x_/PF.Base/vendor/moxi9/phpfox-api-console/" class="api-form">
+				<div><input type="hidden" name="api-form-type" class="api-form-type" value="PUT"></div>
+				<div><input type="hidden" name="endpoint" class="api-end-point" value="/user/:id"></div>
+				
+					
+					<div class="form-group">
+						<label>User ID#</label>
+						<input type="text" name="__endpoint" class="form-control base-end-point" autocomplete="off">
+					</div>
+					
+				
+					
+
+						<div class="form-group">
+							<label>Name</label>
+							<input type="text" name="name" class="form-control" autocomplete="off">
+						</div>
+					
+				
+					
+
+						<div class="form-group">
+							<label>Username</label>
+							<input type="text" name="username" class="form-control" autocomplete="off">
+						</div>
+					
+				
+				<i class="fa fa-spin fa-circle-o-notch hide"></i>
+				<div><input type="submit" class="btn btn-default" value="Run"></div>
+				<pre class="api-response hide"><code></code></pre>
+			</form>
+		</div>
+
+		
+
+	</section>
+
+		</div>
+		
+
+		
+			<div class="links">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/api/user/index.md" target="_blank">
+					<i class="fa fa-github"></i> Edit on Github
+				</a>
+			</div>
+		
+
+		<script src="//cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js"></script>
+		<script src="//cdn.jsdelivr.net/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script src="//cdn.jsdelivr.net/jquery.magnific-popup/1.0.0/jquery.magnific-popup.min.js"></script>
+		<script src="//cdn.jsdelivr.net/highlight.js/8.6/highlight.min.js"></script>
+
+		<script src="/assets/js/main.js?v=3"></script>
+		<script src="/assets/js/search.js?v=3"></script>
+	</body>
+</html>

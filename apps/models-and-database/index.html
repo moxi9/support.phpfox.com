@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
-		<title>Editing your sites Javascript with PHPfox - PHPfox Docs</title>
+		<title>Models, Database & Autoloading - PHPfox Docs</title>
 		
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -70,7 +70,7 @@
 						<a href="/apps/route-grouping/">Route Grouping</a>
 					
 						
-						<a href="/apps/models-and-database/">Models, Database & Autoloading</a>
+						<a href="/apps/models-and-database/" class="active">Models, Database & Autoloading</a>
 					
 						
 						<a href="/apps/forms-and-validation/">Forms & Form Validation</a>
@@ -123,7 +123,7 @@
 						<a href="/themes/css/">Editing CSS</a>
 					
 						
-						<a href="/themes/javascript/" class="active">Editing JavaScript</a>
+						<a href="/themes/javascript/">Editing JavaScript</a>
 					
 					</div>
 				</div>
@@ -151,25 +151,63 @@
 			</nav>
 		</div>
 		<div id="content" class="container-fluid article">
-			<h1 id="editing-your-themes-javascript">Editing your Themes Javascript</h1>
-<p><img src="/assets/img/editing-javascript.png" alt="" /></p>
+			<h1 id="models-database--autoloading">Models, Database &amp; Autoloading</h1>
 
-<p>When you are working with JavaScript you need to make sure to place any code within our <strong>$Ready</strong> function. This function is called
-whenever a page is loaded and is fired when the document is ready.</p>
+<p>If you need to interact with the database or simply want to separate your Controller logic, you can create PHP Model classes that extend
+the <strong>Core\Model</strong> class. Similar to Controllers, we use PHP namespaces to connect to PHP class files via autoloading.</p>
 
-<p>We use <a href="https://jquery.com/">jQuery</a> as our main library of choice.</p>
+<p>Accessing a PHP Model can be done by adding this into your Controller</p>
+<pre><code class="php">$Model = new \Apps\Vendor_Acme\Model\Process();</code></pre>
 
-<pre><code class="javascript">$Ready(function() {
-	// add JS here... jQuery is supported!
-});
-</code></pre>
+<p>In this example, <strong>Vendor</strong> is our company and <strong>Acme</strong> is our app. So the relative path to the PHP file <strong>/PF.Site/Apps/Vendor_Acme/Model/Process.php</strong></p>
+
+<blockquote>
+  <p>Note: The <strong>Vendor_</strong> is optional, but helps to keep your product names unique.</p>
+</blockquote>
+
+<p>Our <strong>Process.php</strong> class file would look something like</p>
+<pre><code class="php">&lt;?php
+
+namespace Apps\Vendor_Acme\Model;
+
+class Process extends \Core\Model {
+	public function make() {
+
+	}
+}</code></pre>
+
+<h2 id="database">Database</h2>
+
+<p>When extending the <strong>Core\Model</strong> class you get access to the Database object layer.</p>
+
+<p>In the <strong>make</strong> function for this Model lets add the following</p>
+<pre><code class="php">$users = $this-&gt;db-&gt;select('*')-&gt;from(':user')-&gt;limit(10)-&gt;all();
+print_r($users);</code></pre>
+
+<p>This will print a list of users, limiting it to 10. Translated into an SQL query, this would be
+<code>
+SELECT * FROM phpfox_user LIMIT 10
+</code></p>
+
+<blockquote>
+  <p>Note: Instead of adding <strong>-&gt;from($this-&gt;db-&gt;table(‘user’))</strong> we use the shorthand <strong>-&gt;from(‘:user’)</strong>, where “:” is converted
+to the table prefix.</p>
+</blockquote>
+
+<h2 id="autoloading-composer-packages">Autoloading Composer Packages</h2>
+
+<p><a href="https://getcomposer.org/">Composer</a> provides a wonderful packaging system where you can find tons of <a href="https://packagist.org/">libs to work with</a>.
+If your app has the <strong>vendor/</strong> folder and an <strong>autoload.php</strong> file provided by Composer we will include that file when we load your app. So
+the composer autoloader is auto loaded for you.</p>
+
+<p><a href="/apps/forms-and-validation/" class="next">Forms &amp; Form Validation</a></p>
 
 		</div>
 		
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/themes/javascript/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/models-and-database/index.md" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
-		<title>Editing your sites Javascript with PHPfox - PHPfox Docs</title>
+		<title>Getting started with Apps - PHPfox Docs</title>
 		
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -55,7 +55,7 @@
 					<div>
 					
 						
-						<a href="/apps/getting-started/">Getting Started</a>
+						<a href="/apps/getting-started/" class="active">Getting Started</a>
 					
 						
 						<a href="/apps/file-structure/">File Structure</a>
@@ -123,7 +123,7 @@
 						<a href="/themes/css/">Editing CSS</a>
 					
 						
-						<a href="/themes/javascript/" class="active">Editing JavaScript</a>
+						<a href="/themes/javascript/">Editing JavaScript</a>
 					
 					</div>
 				</div>
@@ -151,25 +151,44 @@
 			</nav>
 		</div>
 		<div id="content" class="container-fluid article">
-			<h1 id="editing-your-themes-javascript">Editing your Themes Javascript</h1>
-<p><img src="/assets/img/editing-javascript.png" alt="" /></p>
+			<h1 id="getting-started-with-apps">Getting Started with Apps</h1>
 
-<p>When you are working with JavaScript you need to make sure to place any code within our <strong>$Ready</strong> function. This function is called
-whenever a page is loaded and is fired when the document is ready.</p>
+<p>Each app is stored on a clients web server and is developed in PHP.
+However, Neutron supports API calls to a clients web server via a unique ID &amp; Key. This allows you to create
+an app in any language of choice, including mobile apps.</p>
 
-<p>We use <a href="https://jquery.com/">jQuery</a> as our main library of choice.</p>
+<h2 id="creating-a-new-app">Creating a New App</h2>
 
-<pre><code class="javascript">$Ready(function() {
-	// add JS here... jQuery is supported!
-});
-</code></pre>
+<p>From your Admin Control Panel click on <strong>Apps</strong> and then <strong>NEW APP</strong>.</p>
+
+<p>In the modal popup add the name of your app and hit <strong>Submit</strong> to be on your way.</p>
+
+<p><img src="/assets/img/new-app.png" alt="" /></p>
+
+<blockquote>
+  <p>Note: You can import Apps from Github. Just paste the URL to the .git file and it will clone it if your server supports git.</p>
+</blockquote>
+
+<blockquote>
+  <p>Product name can only contain alphanumeric characters and/or an underscore.</p>
+</blockquote>
+
+<h2 id="guidelines">Guidelines</h2>
+
+<p>Before you jump to the next article. In many of the upcoming examples we use terms such as <strong>Acme</strong>, which is used to resemble your
+products name. When accessing a URL we use <mark>http://localhost/</mark> and in the examples we provide we always use Short URLs.</p>
+
+<p>If your developing Apps locally and using PHP we suggest to use an IDE. It will be easier to navigate between classes
+and to understand what a method does.</p>
+
+<p><a href="/apps/file-structure/" class="next">Understanding the App File Structure</a></p>
 
 		</div>
 		
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/themes/javascript/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/getting-started/index.md" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>

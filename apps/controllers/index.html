@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
-		<title>Editing your sites Javascript with PHPfox - PHPfox Docs</title>
+		<title>Controllers - PHPfox Docs</title>
 		
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -123,7 +123,7 @@
 						<a href="/themes/css/">Editing CSS</a>
 					
 						
-						<a href="/themes/javascript/" class="active">Editing JavaScript</a>
+						<a href="/themes/javascript/">Editing JavaScript</a>
 					
 					</div>
 				</div>
@@ -151,25 +151,46 @@
 			</nav>
 		</div>
 		<div id="content" class="container-fluid article">
-			<h1 id="editing-your-themes-javascript">Editing your Themes Javascript</h1>
-<p><img src="/assets/img/editing-javascript.png" alt="" /></p>
+			<h1 id="controllers">Controllers</h1>
 
-<p>When you are working with JavaScript you need to make sure to place any code within our <strong>$Ready</strong> function. This function is called
-whenever a page is loaded and is fired when the document is ready.</p>
+<p>If your app starts to grow, it might be a good idea to move away from <a href="/apps/routing/#inline-routing">Inline Routing</a> and organize routes to controllers.</p>
 
-<p>We use <a href="https://jquery.com/">jQuery</a> as our main library of choice.</p>
+<h2 id="routing">Routing</h2>
 
-<pre><code class="javascript">$Ready(function() {
-	// add JS here... jQuery is supported!
-});
-</code></pre>
+<p>In your <strong>start.php</strong> file for your app replace the file with</p>
+<pre><code class="php">&lt;?php
+
+(new Core\Route('/hello-world'))-&gt;call('\Apps\Vendor\Acme\Controllers\Base@index');</code></pre>
+
+<p>We use PHP namespaces to access PHP class files. Any class that starts with <strong>Apps</strong> will be picked up by our register.
+The rules for our namespacing is to use the relative path to the PHP file. So in this example,
+<strong>Vendor</strong> is our company and <strong>Acme</strong> is our app.
+So the relative path to the PHP file <strong>/PF.Site/Apps/Vendor/Acme/Controllers/Base.php</strong></p>
+
+<p>In your <strong>Base.php</strong> add</p>
+<pre><code class="php">&lt;?php
+
+namespace Apps\Vendor\Acme\Controllers;
+
+class Base extends \Core\Controller {
+    public function index() {
+
+        return $this-&gt;render('hello-world.html');
+    }
+}</code></pre>
+
+<p>In this route we used <strong>@index</strong>, which identifies what the name of the function we should call.
+Similar to <a href="/apps/routing/#inline-routing">Inline Routing</a>, we have access to the <strong>Core\Controller</strong> class since this
+controller extends it. We use the <strong>render</strong> function to connect to the HTML view <strong>hello-world.html</strong> (to be found in the <em>/views/</em> folder).</p>
+
+<p><a href="/apps/models-and-database/" class="next">Working with the Database via Models</a></p>
 
 		</div>
 		
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/themes/javascript/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/controllers/index.md" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>

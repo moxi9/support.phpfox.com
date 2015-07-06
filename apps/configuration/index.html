@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
-		<title>Editing your sites Javascript with PHPfox - PHPfox Docs</title>
+		<title>App Configuration with app.json - PHPfox Docs</title>
 		
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -61,7 +61,7 @@
 						<a href="/apps/file-structure/">File Structure</a>
 					
 						
-						<a href="/apps/configuration/">Configuration</a>
+						<a href="/apps/configuration/" class="active">Configuration</a>
 					
 						
 						<a href="/apps/routing/">Page Routing</a>
@@ -123,7 +123,7 @@
 						<a href="/themes/css/">Editing CSS</a>
 					
 						
-						<a href="/themes/javascript/" class="active">Editing JavaScript</a>
+						<a href="/themes/javascript/">Editing JavaScript</a>
 					
 					</div>
 				</div>
@@ -151,25 +151,84 @@
 			</nav>
 		</div>
 		<div id="content" class="container-fluid article">
-			<h1 id="editing-your-themes-javascript">Editing your Themes Javascript</h1>
-<p><img src="/assets/img/editing-javascript.png" alt="" /></p>
+			<h1 id="app-configuration-with-appjson">App Configuration with app.json</h1>
 
-<p>When you are working with JavaScript you need to make sure to place any code within our <strong>$Ready</strong> function. This function is called
-whenever a page is loaded and is fired when the document is ready.</p>
+<p>Each app has an <strong>app.json</strong> file. This file is used to configure how an app is to be loaded, product versioning, install instructions.</p>
 
-<p>We use <a href="https://jquery.com/">jQuery</a> as our main library of choice.</p>
+<p>The base app.json file will look something like this:</p>
+<pre><code class="json">{
+    "id": "Acme",
+    "name": "Acme",
+    "version": 1,
+    "icon": "http:\/\/cdn.com\/acme.png",
+    "settings": {
+    	"foo": {
+    		"info": "Foo Setting for Bar"
+    	}
+    },
+    "js": [
+    	"http://cdn.com\/acme.js"
+    ]
+    "menu": {
+    	"name": "Acme",
+    	"url": "/acme",
+    	"icon": "smile-o"
+    }
+}</code></pre>
 
-<pre><code class="javascript">$Ready(function() {
-	// add JS here... jQuery is supported!
-});
-</code></pre>
+<h2 id="config-params">Config Params</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>Products ID. Must be a valid path in the <strong>PF.Site/Apps/</strong> directory. When creating this id, keep in mind that it can only contain alphanumeric characters and/or an underscore.</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>Name of your product.</td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td>Version of your product.</td>
+    </tr>
+    <tr>
+      <td>icon</td>
+      <td>Full path to where icon is located.</td>
+    </tr>
+    <tr>
+      <td>settings</td>
+      <td>Define settings Admins can edit from the Admin Control Panel.</td>
+    </tr>
+    <tr>
+      <td>js</td>
+      <td>If you wish to include external JavaScript files you can add them here as an (array).</td>
+    </tr>
+    <tr>
+      <td>menu</td>
+      <td>Define if a menu should be created on the initial install.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>When making changes to this file and it may require clearing your sites cache in some instances.</p>
+</blockquote>
+
+<p><a href="/apps/routing/" class="next">Working with Routes</a></p>
 
 		</div>
 		
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/themes/javascript/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/configuration/index.md" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>

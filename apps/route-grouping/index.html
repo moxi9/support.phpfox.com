@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
-		<title>Editing your sites Javascript with PHPfox - PHPfox Docs</title>
+		<title>Route Grouping - PHPfox Docs</title>
 		
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -67,7 +67,7 @@
 						<a href="/apps/routing/">Page Routing</a>
 					
 						
-						<a href="/apps/route-grouping/">Route Grouping</a>
+						<a href="/apps/route-grouping/" class="active">Route Grouping</a>
 					
 						
 						<a href="/apps/models-and-database/">Models, Database & Autoloading</a>
@@ -123,7 +123,7 @@
 						<a href="/themes/css/">Editing CSS</a>
 					
 						
-						<a href="/themes/javascript/" class="active">Editing JavaScript</a>
+						<a href="/themes/javascript/">Editing JavaScript</a>
 					
 					</div>
 				</div>
@@ -151,25 +151,34 @@
 			</nav>
 		</div>
 		<div id="content" class="container-fluid article">
-			<h1 id="editing-your-themes-javascript">Editing your Themes Javascript</h1>
-<p><img src="/assets/img/editing-javascript.png" alt="" /></p>
+			<h1 id="route-grouping">Route Grouping</h1>
 
-<p>When you are working with JavaScript you need to make sure to place any code within our <strong>$Ready</strong> function. This function is called
-whenever a page is loaded and is fired when the document is ready.</p>
+<p>If your App has a lot of routes it might be easier to group them if your base URL stays the same.</p>
 
-<p>We use <a href="https://jquery.com/">jQuery</a> as our main library of choice.</p>
+<pre><code class="php">new Core\Group('/base', function() {
 
-<pre><code class="javascript">$Ready(function() {
-	// add JS here... jQuery is supported!
-});
-</code></pre>
+    new Core\Route('/', function() {
+        echo "Base Index";
+    });
+
+    new Core\Route('/hello-world', function() {
+        echo "Base / Hello World";
+    });
+
+});</code></pre>
+
+<p>In this example we have a route group with the name <strong>/base</strong>. This will then be the parent route (url) for all its
+child routes. So for the first route we have <strong>/</strong>, this would translate to <strong>/base/</strong>. For our 2nd route we have <strong>/hello-world</strong>
+this would translate to <strong>/base/hello-world</strong>.</p>
+
+<p><a href="/apps/models-and-database/" class="next">Working with the Database via Models</a></p>
 
 		</div>
 		
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/themes/javascript/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/route-grouping/index.md" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>

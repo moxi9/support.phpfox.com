@@ -1,0 +1,771 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<title>Activity Feed API - PHPfox Docs</title>
+		
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.magnific-popup/1.0.0/magnific-popup.css">
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.3.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/8.6/styles/default.min.css">
+
+		<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/assets/css/main.css?v=3">
+
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	</head>
+	<body>
+		<div id="header">
+			<div class="container">
+				<h1><a href="http://www.phpfox.com/">PHP<span>fox</span></a></h1>
+				<h2><a href="/">Support</a></h2>
+			</div>
+		</div>
+
+		
+		<div id="panel">
+			<form method="get" class="search">
+				<input type="text" name="q" placeholder="Search..." autocomplete="off">
+			</form>
+			<div id="results"></div>
+
+			<nav>
+			
+				<div>
+					<a href="#">Getting Started</a>
+					<div>
+					
+						
+						<a href="/getting-started/requirements/">Requirements</a>
+					
+						
+						<a href="/getting-started/installing-phpfox/">Installing PHPfox</a>
+					
+						
+						<a href="/getting-started/installing-phpfox-with-git/">Installing PHPfox with Git</a>
+					
+					</div>
+				</div>
+			
+				<div>
+					<a href="#">Apps</a>
+					<div>
+					
+						
+						<a href="/apps/getting-started/">Getting Started</a>
+					
+						
+						<a href="/apps/file-structure/">File Structure</a>
+					
+						
+						<a href="/apps/configuration/">Configuration</a>
+					
+						
+						<a href="/apps/routing/">Page Routing</a>
+					
+						
+						<a href="/apps/route-grouping/">Route Grouping</a>
+					
+						
+						<a href="/apps/models-and-database/">Models, Database & Autoloading</a>
+					
+						
+						<a href="/apps/forms-and-validation/">Forms & Form Validation</a>
+					
+						
+						<a href="/apps/api/">API Access</a>
+					
+						
+						<a href="/apps/examples-and-resources/">Examples & Resources</a>
+					
+					</div>
+				</div>
+			
+				<div>
+					<a href="#">API Reference</a>
+					<div>
+					
+						
+						<a href="/api/feed/" class="active">Activity Feed</a>
+					
+						
+						<a href="/api/user/">User</a>
+					
+						
+						<a href="/api/like/">Like</a>
+					
+						
+						<a href="/api/comment/">Comment</a>
+					
+						
+						<a href="/api/message/">Message</a>
+					
+					</div>
+				</div>
+			
+				<div>
+					<a href="#">Themes</a>
+					<div>
+					
+						
+						<a href="/themes/getting-started/">Getting Started</a>
+					
+						
+						<a href="/themes/managing-themes/">Managing Themes</a>
+					
+						
+						<a href="/themes/html/">Editing HTML</a>
+					
+						
+						<a href="/themes/css/">Editing CSS</a>
+					
+						
+						<a href="/themes/javascript/">Editing JavaScript</a>
+					
+					</div>
+				</div>
+			
+				<div>
+					<a href="#">Admin Tips</a>
+					<div>
+					
+						
+						<a href="/admin-tips/changing-your-sites-favicon/">Changing your Sites Favicon</a>
+					
+					</div>
+				</div>
+			
+				<div>
+					<a href="#">License Holder Tips</a>
+					<div>
+					
+						
+						<a href="/license-holder-tips/finding-license-id-and-key/">Finding your License ID &amp; Key</a>
+					
+					</div>
+				</div>
+			
+			</nav>
+		</div>
+		<div id="content" class="container-fluid article">
+			
+
+<h1>Activity Feed API</h1>
+<h2 class="api-h2">Access to activity feed. Used to add any base content for the site and is open to custom fields, which is based on passing JSON. Each feed is connected to the Like & Comment app.</h2>
+
+	<section class="api-info" id="/feed-GET">
+		<h1>/feed</h1>
+		<h2>Gets an array of activity feeds.</h2>
+		<span><mark>GET</mark></span>
+
+		
+
+		
+			
+				
+			
+		<h3><span>Returns</span><mark>array</mark></h3>
+		
+		<table>
+			<tr>
+				<th>Key</th>
+				<th>Info</th>
+			</tr>
+		
+			
+			<tr>
+				<td><strong>id</strong></td>
+				<td>
+					
+						
+							
+							(int) ID of the activity feed.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>content</strong></td>
+				<td>
+					
+						
+							
+							(string|object) Content for the feed. If it is a JSON (string), this will return as an (object).
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>total_likes</strong></td>
+				<td>
+					
+						
+							
+							(int) Total number of likes.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>total_comments</strong></td>
+				<td>
+					
+						
+							
+							(int) Total number of comments.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>user</strong></td>
+				<td>
+					
+						
+							
+							(object) <a href="/api/user/#/user/:id-GET">User Object</a>
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>custom</strong></td>
+				<td>
+					
+						
+							
+							(object)
+							
+						
+					
+				</td>
+			</tr>
+			
+		
+		</table>
+		
+
+		
+
+		
+		
+
+		<div class="api-test-holder">
+			<h3><mark>API Test</mark></h3>
+			<form method="post" action="http://localhost/phpfox/4x_/PF.Base/vendor/moxi9/phpfox-api-console/" class="api-form">
+				<div><input type="hidden" name="api-form-type" class="api-form-type" value="GET"></div>
+				<div><input type="hidden" name="endpoint" class="api-end-point" value="/feed"></div>
+				
+					
+
+					
+				
+				<i class="fa fa-spin fa-circle-o-notch hide"></i>
+				<div><input type="submit" class="btn btn-default" value="Run"></div>
+				<pre class="api-response hide"><code></code></pre>
+			</form>
+		</div>
+
+		
+
+	</section>
+
+	<section class="api-info" id="/feed/:id-GET">
+		<h1>/feed/:id</h1>
+		<h2>Get a single feed.</h2>
+		<span><mark>GET</mark></span>
+
+		
+
+		
+			
+				
+			
+		<h3><span>Returns</span><mark>object</mark></h3>
+		
+		<table>
+			<tr>
+				<th>Key</th>
+				<th>Info</th>
+			</tr>
+		
+			
+			<tr>
+				<td><strong>id</strong></td>
+				<td>
+					
+						
+							
+							(int) ID of the activity feed.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>content</strong></td>
+				<td>
+					
+						
+							
+							(string|object) Content for the feed. If it is a JSON (string), this will return as an (object).
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>total_likes</strong></td>
+				<td>
+					
+						
+							
+							(int) Total number of likes.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>total_comments</strong></td>
+				<td>
+					
+						
+							
+							(int) Total number of comments.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>user</strong></td>
+				<td>
+					
+						
+							
+							(object) <a href="/api/user/#/user/:id-GET">User Object</a>
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>custom</strong></td>
+				<td>
+					
+						
+							
+							(object)
+							
+						
+					
+				</td>
+			</tr>
+			
+		
+		</table>
+		
+
+		
+
+		
+		
+
+		<div class="api-test-holder">
+			<h3><mark>API Test</mark></h3>
+			<form method="post" action="http://localhost/phpfox/4x_/PF.Base/vendor/moxi9/phpfox-api-console/" class="api-form">
+				<div><input type="hidden" name="api-form-type" class="api-form-type" value="GET"></div>
+				<div><input type="hidden" name="endpoint" class="api-end-point" value="/feed/:id"></div>
+				
+					
+					<div class="form-group">
+						<label>Feed ID#</label>
+						<input type="text" name="__endpoint" class="form-control base-end-point" autocomplete="off">
+					</div>
+					
+				
+				<i class="fa fa-spin fa-circle-o-notch hide"></i>
+				<div><input type="submit" class="btn btn-default" value="Run"></div>
+				<pre class="api-response hide"><code></code></pre>
+			</form>
+		</div>
+
+		
+
+	</section>
+
+	<section class="api-info" id="/feed-POST">
+		<h1>/feed</h1>
+		<h2>Creates a new activity feed. Returns the feeds (object) on success.</h2>
+		<span><mark>POST</mark></span>
+
+		
+			<h3><span>Requires</span></h3>
+			<table>
+				<tr>
+					<th>Key</th>
+					<th>Info</th>
+				</tr>
+				
+					
+						<tr>
+							<td>type_id</td>
+							<td>(string) Identify the type of feed. This is usually your App ID.</td>
+						</tr>
+					
+				
+					
+						<tr>
+							<td>content</td>
+							<td>(string|object) String of what you wish to display in the feed. If you insert JSON (string) it will return as an (object).</td>
+						</tr>
+					
+				
+			</table>
+		
+
+		
+			
+				
+			
+		<h3><span>Returns</span><mark>object</mark></h3>
+		
+		<table>
+			<tr>
+				<th>Key</th>
+				<th>Info</th>
+			</tr>
+		
+			
+			<tr>
+				<td><strong>id</strong></td>
+				<td>
+					
+						
+							
+							(int) ID of the activity feed.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>content</strong></td>
+				<td>
+					
+						
+							
+							(string|object) Content for the feed. If it is a JSON (string), this will return as an (object).
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>total_likes</strong></td>
+				<td>
+					
+						
+							
+							(int) Total number of likes.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>total_comments</strong></td>
+				<td>
+					
+						
+							
+							(int) Total number of comments.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>user</strong></td>
+				<td>
+					
+						
+							
+							(object) <a href="/api/user/#/user/:id-GET">User Object</a>
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>custom</strong></td>
+				<td>
+					
+						
+							
+							(object)
+							
+						
+					
+				</td>
+			</tr>
+			
+		
+		</table>
+		
+
+		
+
+		
+		
+
+		<div class="api-test-holder">
+			<h3><mark>API Test</mark></h3>
+			<form method="post" action="http://localhost/phpfox/4x_/PF.Base/vendor/moxi9/phpfox-api-console/" class="api-form">
+				<div><input type="hidden" name="api-form-type" class="api-form-type" value="POST"></div>
+				<div><input type="hidden" name="endpoint" class="api-end-point" value="/feed"></div>
+				
+					
+
+						<div class="form-group">
+							<label>Feed Content</label>
+							<input type="text" name="content" class="form-control" autocomplete="off">
+						</div>
+					
+				
+					
+
+						<div class="form-group">
+							<label>User ID#</label>
+							<input type="text" name="user_id" class="form-control" autocomplete="off">
+						</div>
+					
+				
+				<i class="fa fa-spin fa-circle-o-notch hide"></i>
+				<div><input type="submit" class="btn btn-default" value="Run"></div>
+				<pre class="api-response hide"><code></code></pre>
+			</form>
+		</div>
+
+		
+
+	</section>
+
+	<section class="api-info" id="/feed/:id-DELETE">
+		<h1>/feed/:id</h1>
+		<h2>Deletes an activity feed.</h2>
+		<span><mark>DELETE</mark></span>
+
+		
+
+		
+			
+				
+			
+		<h3><span>Returns</span><mark>boolean</mark></h3>
+		
+
+		
+
+		
+
+	</section>
+
+	<section class="api-info" id="/feed/:id-PUT">
+		<h1>/feed/:id</h1>
+		<h2>Updates a feed. On success it returns the feed (object) or (false).</h2>
+		<span><mark>PUT</mark></span>
+
+		
+			<h3><span>Requires</span></h3>
+			<table>
+				<tr>
+					<th>Key</th>
+					<th>Info</th>
+				</tr>
+				
+					
+						<tr>
+							<td>content</td>
+							<td>String of what you wish to display in the feed. If you insert JSON (string) it will return as an (object).</td>
+						</tr>
+					
+				
+			</table>
+		
+
+		
+			
+				
+			
+		<h3><span>Returns</span><mark>object</mark></h3>
+		
+		<table>
+			<tr>
+				<th>Key</th>
+				<th>Info</th>
+			</tr>
+		
+			
+			<tr>
+				<td><strong>id</strong></td>
+				<td>
+					
+						
+							
+							(int) ID of the activity feed.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>content</strong></td>
+				<td>
+					
+						
+							
+							(string|object) Content for the feed. If it is a JSON (string), this will return as an (object).
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>total_likes</strong></td>
+				<td>
+					
+						
+							
+							(int) Total number of likes.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>total_comments</strong></td>
+				<td>
+					
+						
+							
+							(int) Total number of comments.
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>user</strong></td>
+				<td>
+					
+						
+							
+							(object) <a href="/api/user/#/user/:id-GET">User Object</a>
+							
+						
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td><strong>custom</strong></td>
+				<td>
+					
+						
+							
+							(object)
+							
+						
+					
+				</td>
+			</tr>
+			
+		
+		</table>
+		
+
+		
+
+		
+		
+
+		<div class="api-test-holder">
+			<h3><mark>API Test</mark></h3>
+			<form method="post" action="http://localhost/phpfox/4x_/PF.Base/vendor/moxi9/phpfox-api-console/" class="api-form">
+				<div><input type="hidden" name="api-form-type" class="api-form-type" value="PUT"></div>
+				<div><input type="hidden" name="endpoint" class="api-end-point" value="/feed/:id"></div>
+				
+					
+
+						<div class="form-group">
+							<label>Updating Feed via API (time)</label>
+							<input type="text" name="content" class="form-control" autocomplete="off">
+						</div>
+					
+				
+					
+					<div class="form-group">
+						<label>/feed/1</label>
+						<input type="text" name="__endpoint" class="form-control base-end-point" autocomplete="off">
+					</div>
+					
+				
+				<i class="fa fa-spin fa-circle-o-notch hide"></i>
+				<div><input type="submit" class="btn btn-default" value="Run"></div>
+				<pre class="api-response hide"><code></code></pre>
+			</form>
+		</div>
+
+		
+
+	</section>
+
+		</div>
+		
+
+		
+			<div class="links">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/api/feed/index.md" target="_blank">
+					<i class="fa fa-github"></i> Edit on Github
+				</a>
+			</div>
+		
+
+		<script src="//cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js"></script>
+		<script src="//cdn.jsdelivr.net/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script src="//cdn.jsdelivr.net/jquery.magnific-popup/1.0.0/jquery.magnific-popup.min.js"></script>
+		<script src="//cdn.jsdelivr.net/highlight.js/8.6/highlight.min.js"></script>
+
+		<script src="/assets/js/main.js?v=3"></script>
+		<script src="/assets/js/search.js?v=3"></script>
+	</body>
+</html>

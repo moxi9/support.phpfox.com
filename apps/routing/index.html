@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
-		<title>Editing your sites Javascript with PHPfox - PHPfox Docs</title>
+		<title>Routing - PHPfox Docs</title>
 		
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -64,7 +64,7 @@
 						<a href="/apps/configuration/">Configuration</a>
 					
 						
-						<a href="/apps/routing/">Page Routing</a>
+						<a href="/apps/routing/" class="active">Page Routing</a>
 					
 						
 						<a href="/apps/route-grouping/">Route Grouping</a>
@@ -123,7 +123,7 @@
 						<a href="/themes/css/">Editing CSS</a>
 					
 						
-						<a href="/themes/javascript/" class="active">Editing JavaScript</a>
+						<a href="/themes/javascript/">Editing JavaScript</a>
 					
 					</div>
 				</div>
@@ -151,25 +151,57 @@
 			</nav>
 		</div>
 		<div id="content" class="container-fluid article">
-			<h1 id="editing-your-themes-javascript">Editing your Themes Javascript</h1>
-<p><img src="/assets/img/editing-javascript.png" alt="" /></p>
+			<h1 id="routing">Routing</h1>
 
-<p>When you are working with JavaScript you need to make sure to place any code within our <strong>$Ready</strong> function. This function is called
-whenever a page is loaded and is fired when the document is ready.</p>
+<p>In order for a page to exist a route must be created for it. There are several ways to output a page, as well as several methods
+to create a route. Our first step will be to create the most basic route.</p>
 
-<p>We use <a href="https://jquery.com/">jQuery</a> as our main library of choice.</p>
+<h2 id="inline-routing">Inline Routing</h2>
 
-<pre><code class="javascript">$Ready(function() {
-	// add JS here... jQuery is supported!
-});
-</code></pre>
+<p>This method of creating a route is for smaller apps that do not need a PHP class structure. To get this started in your
+app folder open the file <strong>start.php</strong>. In that file add the following:</p>
+<pre><code class="php">&lt;?php
+
+new Core\Route('/hello-world', function() {
+    echo "Hello World!";
+});</code></pre>
+
+<p>Once you saved the file, visit your site by going to <mark>http://localhost/hello-world</mark></p>
+
+<p>If all goes well, you should see a blank page with just <strong>Hello World!</strong></p>
+
+<p>You have created your first route! Let’s take a look at what we have done thus far. In order to create a new route we access
+our <strong>Core</strong> class <strong>Route</strong>. The first argument is the route (e.g. url) to connect your callback. The 2nd argument is the callback.
+Anything you echo in the callback will be output to the browser when the route is valid.</p>
+
+<h2 id="adding-a-view">Adding a View</h2>
+
+<p>The page looks a little boring, lets connect our page to the base theme. In order to do this we need to work with HTML <strong>views</strong>.
+For this example lets create a file called <strong>hello-world.html</strong> in the <strong>/views/</strong> folder of your app. In that file add</p>
+<pre><code class="php">Hello World with a different view!</code></pre>
+
+<p>Next, lets go back to our <strong>start.php</strong> and replace that file with</p>
+<pre><code class="php">&lt;?php
+
+new Core\Route('/hello-world', function(Core\Controller $Controller) {
+
+    return $Controller-&gt;render('hello-world.html');
+});</code></pre>
+
+<p>Now when you visit <mark>http://localhost/hello-world</mark> you will find <em>“Hello World with a different view!”</em> in the main content area and now connected to the sites theme.</p>
+
+<p>We now added a <strong>return</strong> using the <strong>render</strong> function, which is part of the <strong>Core\Controller</strong> class.</p>
+<pre><code class="php">return $Controller-&gt;render('hello-world.html');</code></pre>
+
+<p><a href="/apps/route-grouping/" class="next">Grouping your Routes</a></p>
+
 
 		</div>
 		
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/themes/javascript/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/routing/index.md" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>

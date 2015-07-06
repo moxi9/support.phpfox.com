@@ -174,13 +174,30 @@ table {
 
 	th {
 		background:@body-bg;
-		border-bottom:1px lighten(#dfdfdf, 5%) solid;
+		border:1px lighten(#dfdfdf, 5%) solid;
+		padding:10px 20px;
 	}
 
 	td {
 		padding:10px 20px;
 		border:1px lighten(#dfdfdf, 5%) solid;
 		border-top:0px;
+		vertical-align:top;
+
+		> div:first-of-type:before {
+			content: '(object)';
+			display:block;
+			margin-left:-8px;
+			margin-bottom:8px;
+		}
+
+		> div {
+			margin:2px 0px 10px 8px;
+		}
+
+		> div:first-of-type {
+			margin-top:0px;
+		}
 	}
 }
 
@@ -312,6 +329,7 @@ code:not(.hljs) {
 	display:block;
 	/*max-width:600px;*/
 	margin:5px 0px;
+	white-space:pre;
 }
 
 .overlay-bg {
@@ -569,5 +587,139 @@ mark {
 				}
 			}
 		}
+	}
+}
+
+#content.article .api-h2 {
+	color:#808080;
+	font-size:16px;
+	font-weight:normal;
+	margin:0px;
+	padding:0px;
+}
+
+#content.article .api-info {
+	border-top:20px @body-bg solid;
+	margin:20px -20px -20px -20px;
+	padding:20px;
+	position:relative;
+
+	h1, h2, h3 {
+		margin:0px;
+		padding:0px;
+	}
+
+	h1 {
+		font-size:18px;
+		font-weight:500;
+		padding-bottom:10px;
+		margin-bottom:10px;
+		line-height:normal;
+	}
+
+	h2 {
+		font-size:16px;
+		color:#808080;
+		margin-bottom:20px;
+		font-weight:normal;
+	}
+
+	h3 {
+		padding-top:10px;
+		font-size:13px;
+		margin-top:20px;
+		font-weight:500;
+		position:relative;
+
+		> span {
+			text-transform:uppercase;
+			margin-right:5px;
+			color:#222;
+		}
+
+		> mark {
+			/*
+			position:absolute;
+			right:0px;
+			bottom:0px;
+			*/
+			background:@nav-bg;
+			color:@nav-color;
+			opacity:0.4;
+			font-size:11px;
+			padding:2px 4px;
+		}
+	}
+
+	> span {
+		position:absolute;
+		right:20px;
+		top:25px;
+		font-size:10px;
+		font-weight:500;
+
+		> mark {
+			background:#3498db;
+			color:#fff;
+			padding:2px 4px;
+			margin-left:5px;
+			opacity:0.4;
+		}
+	}
+
+	table {
+		margin-top:15px;
+	}
+
+	transition:all 0.55s ease;
+}
+
+#content.article .api-info:hover {
+	transition:all 0.55s ease;
+	mark, span {
+		opacity:1 !important;
+	}
+}
+
+.api-test {
+	> div {
+		display:none;
+	}
+
+	margin-top:30px;
+	background:@primary-bg;
+	color:@primary-bg-color;
+	border:0px;
+}
+
+#content.article .api-test-holder {
+	border-top:1px #dfdfdf solid;
+	margin-top:10px;
+	padding-top:10px;
+
+	> h3 {
+		font-size:12px;
+		font-weight:600;
+		text-transform:uppercase;
+		margin:0px;
+		padding:0px;
+		padding-bottom:10px;
+
+		mark {
+			background:#3498db;
+		}
+	}
+
+	.btn-default {
+		background:#fff;
+		color:#808080;
+		border:1px #dfdfdf solid;
+		font-weight:300;
+	}
+
+	.btn-default:hover {
+		background:@primary-bg;
+		color:@primary-bg-color;
+		border-color:@primary-bg;
 	}
 }
