@@ -67,7 +67,6 @@
 			Run Test
 			<div>{{ api.try | replace:"=>":":" | replace:"[":"" | replace:"]":"" }}</div>
 		</button>
-		{% endcomment %}
 
 		<div class="api-test-holder">
 			<h3><mark>API Test</mark></h3>
@@ -100,6 +99,8 @@
 				<pre class="api-response hide"><code></code></pre>
 			</form>
 		</div>
+
+		{% endcomment %}
 
 		{% endif %}
 
