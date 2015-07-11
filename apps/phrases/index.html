@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
-		<title>Requirements - PHPfox Docs</title>
+		<title>Phrases - PHPfox Docs</title>
 		
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -39,7 +39,7 @@
 					<div>
 					
 						
-						<a href="/getting-started/requirements/" class="active">Requirements</a>
+						<a href="/getting-started/requirements/">Requirements</a>
 					
 						
 						<a href="/getting-started/installing-phpfox/">Installing PHPfox</a>
@@ -79,7 +79,7 @@
 						<a href="/apps/api/">API Access</a>
 					
 						
-						<a href="/apps/phrases/">Phrases</a>
+						<a href="/apps/phrases/" class="active">Phrases</a>
 					
 						
 						<a href="/apps/examples-and-resources/">Examples & Resources</a>
@@ -154,59 +154,72 @@
 			</nav>
 		</div>
 		<div id="content" class="container-fluid article">
-			<h1 id="phpfox-requirements">PHPfox Requirements</h1>
+			<h1 id="phrases">Phrases</h1>
 
-<p>If you are unsure if your web server meets our products requirements, simply contact your host and send them this page.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>PHP Version</td>
-      <td>5.4 or higher</td>
-    </tr>
-    <tr>
-      <td>MySQL Version</td>
-      <td>4.1+</td>
-    </tr>
-    <tr>
-      <td>PHP EXEC function</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>PHP GD</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>PHP CURL</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>PHP memory_limit</td>
-      <td>64M</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><a href="/getting-started/installing-phpfox/" class="next">Installing PHPfox</a></p>
-
-<h3 id="need-a-host">Need a host?</h3>
 <blockquote>
-  <p><a href="http://www.phpfoxsolutions.com/" target="_blank"><img src="http://www.phpfoxsolutions.com/images/ps-ad-125x125-b-2.png" alt="" /></a> <a href="http://www.phpfoxsolutions.com/">PhpFoxSolutions</a>, a service by Teamwurkz Technologies, Inc, is focused on being a total solution source for PHPfox powered sites. Our extensive knowledge of the PHPfox script comes from years of experience working with clients to set up and maintain their sites. We’ve helped grow sites from start-up to millions of members, and still are maintaining those sites today.</p>
+  <p><strong>Requires:</strong> PHPfox &gt;= 4.0.1</p>
 </blockquote>
 
+<h2 id="phrase-variables">Phrase Variables</h2>
+
+<p>The product comes with over 7k phrases to use and can be found from the AdminCP by going to</p>
+
+<blockquote>
+  <p>Site &gt; Phrases</p>
+</blockquote>
+
+<p>Let’s visit that page and run a search for <strong>sample_phrase</strong>. Make sure to select <strong>Phrase Variable Name Only</strong></p>
+
+<p><img src="/assets/img/search-phrase.png" alt="" /></p>
+
+<p>Your search should find the phrase <strong>Sample Phrase</strong>.</p>
+
+<p><img src="/assets/img/phrase-search-results.png" alt="" /></p>
+
+<p>The variable for this phrase is <strong>core.sample_phrase</strong>. In any of your HTML views or PHP controllers, well anywhere your App is connected to our
+core you can use the internal function <strong>_p()</strong> to call a phrase.</p>
+
+<p>In an HTML file it could look like:</p>
+
+<pre><code class="html">{{ _p('core.sample_phrase') }}
+</code></pre>
+
+<p>Using PHP</p>
+<pre><code class="php"> new Core\Route('/test-phrase', function() {
+    echo _p('core.sample_phrase');
+});
+</code></pre>
+
+<h2 id="phrasing-without-variables">Phrasing without Variables</h2>
+
+<p>The product may come with over 7k phrases, however these are used internally and your app will likely need its own phrasing. You don’t
+need to create new phrases from the AdminCP, however you can if you want to. The easiest way to create a phrase is by doing so on the fly.</p>
+
+<p>HTML…</p>
+
+<pre><code class="html">{{ _p('Very Fly Sample Phrase') }}
+</code></pre>
+
+<p>In this example we output your phrase if one does not exist in the clients database.</p>
+
+<h2 id="passing-variables-to-phrases">Passing variables to phrases</h2>
+<p>Your phrases may need variables passed to it, and in HTML this can be done like so</p>
+
+<pre><code class="html">{{ _p('Sample {{ phrase }}', {phrase: 'Phrase'}) }}
+</code></pre>
+
+<p>Phrase variables must always being with double brackets and a space in-between each other.</p>
+
+<blockquote>
+  <p>{{ phrase }}</p>
+</blockquote>
 
 		</div>
 		
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/getting-started/requirements/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/phrases/index.md" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>
