@@ -40,6 +40,9 @@
     - title: API Access
       url: api
 
+    - title: Phrases
+      url: phrases
+
     - title: Examples & Resources
       url: examples-and-resources
 
