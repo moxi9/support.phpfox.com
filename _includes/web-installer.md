@@ -1,3 +1,26 @@
+
+{% if isUpgrade %}
+## Web Upgrader
+
+Fire up your web browser of choice and visit your site by going
+
+> http://www.yoursite.com/**index.php?phpfox-upgrade=true**
+
+The first step of the web install, will be to select what type of license to re-assign to this copy of PHPfox.
+
+![](/assets/img/select-a-license.png)
+
+## Enter your License ID & Key
+
+The next step will require you to re-enter your PHPfox License ID & Key. This is to prevent anyone from upgrading your site while it is offline.
+
+![](/assets/img/enter-license-id.png)
+
+## Upgrade Process
+
+After you have successfully entered your PHPfox License ID & Key the **Upgrader** will run all the required updates to your database until it is completed.
+
+{% else %}
 ## Web Installer
 
 Fire up your web browser of choice and visit your site.
@@ -32,3 +55,5 @@ with great power.
 ![](/assets/img/admin-account.png)
 
 Congratulations! You have successfully installed PHPfox.
+
+{% endif %}

@@ -12,6 +12,13 @@
     - title: Installing PHPfox with Git
       url: installing-phpfox-with-git
 
+- name: Upgrading PHPfox
+  url: upgrading-phpfox
+  icon:
+  docs:
+    - title: Manually Upload Files
+      url: manually-upload-files
+
 - name: Apps
   url: apps
   icon:
