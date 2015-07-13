@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
-		<title>Getting started with Apps - PHPfox Docs</title>
+		<title>Manually Uploading Files - PHPfox Docs</title>
 		
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -55,7 +55,7 @@
 					<div>
 					
 						
-						<a href="/upgrading-phpfox/manually-upload-files/">Manually Upload Files</a>
+						<a href="/upgrading-phpfox/manually-upload-files/" class="active">Manually Upload Files</a>
 					
 					</div>
 				</div>
@@ -65,7 +65,7 @@
 					<div>
 					
 						
-						<a href="/apps/getting-started/" class="active">Getting Started</a>
+						<a href="/apps/getting-started/">Getting Started</a>
 					
 						
 						<a href="/apps/file-structure/">File Structure</a>
@@ -164,44 +164,69 @@
 			</nav>
 		</div>
 		<div id="content" class="container-fluid article">
-			<h1 id="getting-started-with-apps">Getting Started with Apps</h1>
+			<h1 id="upgrading-to-phpfox-manually-uploading-files">Upgrading to PHPfox (Manually Uploading Files)</h1>
 
-<p>Each app is stored on a clients web server and is developed in PHP.
-However, Neutron supports API calls to a clients web server via a unique ID &amp; Key. This allows you to create
-an app in any language of choice, including mobile apps.</p>
+<p>This guide will help you through the upgrade process of PHPfox v4 or higher.</p>
 
-<h2 id="creating-a-new-app">Creating a New App</h2>
+<h2 id="downloading">Downloading</h2>
 
-<p>From your Admin Control Panel click on <strong>Apps</strong> and then <strong>NEW APP</strong>.</p>
+<p>Download the latest version of PHPfox from <a href="https://github.com/moxi9/phpfox-dist/archive/master.zip">here</a>.</p>
 
-<p>In the modal popup add the name of your app and hit <strong>Submit</strong> to be on your way.</p>
+<p>Once you have downloaded and unzipped the package, you should see something like this…</p>
 
-<p><img src="/assets/img/new-app.png" alt="" /></p>
+<p><img src="/assets/img/files.png" alt="" /></p>
 
-<blockquote>
-  <p>Note: You can import Apps from Github. Just paste the URL to the .git file and it will clone it if your server supports git.</p>
-</blockquote>
+<p>You are to upload those files and folders to your sites root directory.</p>
 
 <blockquote>
-  <p>Product name can only contain alphanumeric characters and/or an underscore.</p>
+  <p><em>Hint: If you have cPanel you will have a File Manager that has an Unzip feature. You could ZIP up those files/folders and upload the one ZIP file.
+Then unzip it on your server.</em></p>
 </blockquote>
 
-<h2 id="guidelines">Guidelines</h2>
+<h2 id="folder-permissions">Folder Permissions</h2>
 
-<p>Before you jump to the next article. In many of the upcoming examples we use terms such as <strong>Acme</strong>, which is used to resemble your
-products name. When accessing a URL we use <mark>http://localhost/</mark> and in the examples we provide we always use Short URLs.</p>
+<p>Once you have uploaded all the files/folders. You need to grant full read/write access (usually 0777) to the following 2 folders:</p>
 
-<p>If your developing Apps locally and using PHP we suggest to use an IDE. It will be easier to navigate between classes
-and to understand what a method does.</p>
+<ul>
+  <li>PF.Base/</li>
+  <li>PF.Site/</li>
+</ul>
 
-<p><a href="/apps/file-structure/" class="next">Understanding the App File Structure</a></p>
+<p><img src="/assets/img/permission.png" alt="" /></p>
+
+<blockquote>
+  <p><em>Note: Once you have completed the install you can return the permissions for the folder <strong>PF.Base</strong> back to what it originally was set to.</em></p>
+</blockquote>
+
+<h2 id="web-upgrader">Web Upgrader</h2>
+
+<p>Fire up your web browser of choice and visit your site by going</p>
+
+<blockquote>
+  <p>http://www.yoursite.com/<strong>index.php?phpfox-upgrade=true</strong></p>
+</blockquote>
+
+<p>The first step of the web install, will be to select what type of license to re-assign to this copy of PHPfox.</p>
+
+<p><img src="/assets/img/select-a-license.png" alt="" /></p>
+
+<h2 id="enter-your-license-id--key">Enter your License ID &amp; Key</h2>
+
+<p>The next step will require you to re-enter your PHPfox License ID &amp; Key. This is to prevent anyone from upgrading your site while it is offline.</p>
+
+<p><img src="/assets/img/enter-license-id.png" alt="" /></p>
+
+<h2 id="upgrade-process">Upgrade Process</h2>
+
+<p>After you have successfully entered your PHPfox License ID &amp; Key the <strong>Upgrader</strong> will run all the required updates to your database until it is completed.</p>
+
 
 		</div>
 		
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/getting-started/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/upgrading-phpfox/manually-upload-files/index.md" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>
