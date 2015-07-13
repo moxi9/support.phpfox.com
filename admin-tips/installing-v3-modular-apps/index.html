@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
-		<title>Requirements - PHPfox Docs</title>
+		<title>Installing v3 Modular Apps - PHPfox Docs</title>
 		
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -39,7 +39,7 @@
 					<div>
 					
 						
-						<a href="/getting-started/requirements/" class="active">Requirements</a>
+						<a href="/getting-started/requirements/">Requirements</a>
 					
 						
 						<a href="/getting-started/installing-phpfox/">Installing PHPfox</a>
@@ -149,7 +149,7 @@
 						<a href="/admin-tips/changing-your-sites-favicon/">Changing your Sites Favicon</a>
 					
 						
-						<a href="/admin-tips/installing-v3-modular-apps/">Installing v3 Modular Apps</a>
+						<a href="/admin-tips/installing-v3-modular-apps/" class="active">Installing v3 Modular Apps</a>
 					
 					</div>
 				</div>
@@ -167,59 +167,59 @@
 			</nav>
 		</div>
 		<div id="content" class="container-fluid article">
-			<h1 id="phpfox-requirements">PHPfox Requirements</h1>
+			<h1 id="installing-v3-modular-apps">Installing v3 Modular Apps</h1>
 
-<p>If you are unsure if your web server meets our products requirements, simply contact your host and send them this page.</p>
+<p>Using modules that were developed for v3 can be installed in v4 using very similar methods provided by v3.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>PHP Version</td>
-      <td>5.4 or higher</td>
-    </tr>
-    <tr>
-      <td>MySQL Version</td>
-      <td>4.1+</td>
-    </tr>
-    <tr>
-      <td>PHP EXEC function</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>PHP GD</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>PHP CURL</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>PHP memory_limit</td>
-      <td>64M</td>
-    </tr>
-  </tbody>
-</table>
+<h2 id="disclaimer">Disclaimer</h2>
 
-<p><a href="/getting-started/installing-phpfox/" class="next">Installing PHPfox</a></p>
-
-<h3 id="need-a-host">Need a host?</h3>
 <blockquote>
-  <p><a href="http://www.phpfoxsolutions.com/" target="_blank"><img src="http://www.phpfoxsolutions.com/images/ps-ad-125x125-b-2.png" alt="" /></a> <a href="http://www.phpfoxsolutions.com/">PhpFoxSolutions</a>, a service by Teamwurkz Technologies, Inc, is focused on being a total solution source for PHPfox powered sites. Our extensive knowledge of the PHPfox script comes from years of experience working with clients to set up and maintain their sites. We’ve helped grow sites from start-up to millions of members, and still are maintaining those sites today.</p>
+  <p>This article is intended to explain the method to install modules with v4 and does not guarantee a modules functionality.</p>
 </blockquote>
 
+<blockquote>
+  <p>This article tests a 3rd party module, <a href="http://store.phpfox.com/product/407/my-schools">My Schools</a> developed by Konsort.org.</p>
+</blockquote>
+
+<h2 id="phpfox-base-directory">PHPfox Base Directory</h2>
+
+<p>The first major difference you will notice with v3 and v4 is the directory/file structure. This
+is very true at first glance, however if you navigate into the folder <strong>/PF.Base/</strong> you will notice
+a very familiar directory structure that is similar to v3.</p>
+
+<h2 id="uploading-modular-apps">Uploading Modular Apps</h2>
+
+<p>When you upload any modular app, the instructions provided by the developers usually guide you to upload
+their files to your sites root directory, which in v4 would be in the <strong>/PF.Base/</strong> folder.</p>
+
+<h2 id="enabling-module-from-admincp">Enabling Module from AdminCP</h2>
+
+<p>Once you have uploaded all of the modules files, login into your AdminCP. On your dashboard you should find the product.</p>
+
+<p><img src="/assets/img/admincp-install-module.png" alt="" /></p>
+
+<h2 id="finding-modules">Finding Modules</h2>
+
+<p>Once you have installed a module you can find it with all of your other Apps.</p>
+
+<blockquote>
+  <p>AdminCP &gt; Apps</p>
+</blockquote>
+
+<p><img src="/assets/img/modules-list.png" alt="" /></p>
+
+<h2 id="managing-your-module">Managing your Module</h2>
+
+<p>Once you have found the module, click on it to manage any AdminCP settings it may have.</p>
+
+<p><img src="/assets/img/editing-module-settings.png" alt="" /></p>
 
 		</div>
 		
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/getting-started/requirements/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/admin-tips/installing-v3-modular-apps/index.md" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>
