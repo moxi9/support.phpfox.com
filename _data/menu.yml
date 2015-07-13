@@ -97,6 +97,9 @@
     - title: Changing your Sites Favicon
       url: changing-your-sites-favicon
 
+    - title: Installing v3 Modular Apps
+      url: installing-v3-modular-apps
+
 - name: License Holder Tips
   url: license-holder-tips
   icon: info
