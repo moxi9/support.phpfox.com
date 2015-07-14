@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
-		<title>App Configuration with app.json - PHPfox Docs</title>
+		<title>Setting up Ads - PHPfox Docs</title>
 		
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -71,7 +71,7 @@
 						<a href="/apps/file-structure/">File Structure</a>
 					
 						
-						<a href="/apps/configuration/" class="active">Configuration</a>
+						<a href="/apps/configuration/">Configuration</a>
 					
 						
 						<a href="/apps/routing/">Page Routing</a>
@@ -152,7 +152,7 @@
 						<a href="/admin-tips/installing-v3-modular-apps/">Installing v3 Modular Apps</a>
 					
 						
-						<a href="/admin-tips/setting-up-ads/">Setting up Ads</a>
+						<a href="/admin-tips/setting-up-ads/" class="active">Setting up Ads</a>
 					
 					</div>
 				</div>
@@ -170,84 +170,56 @@
 			</nav>
 		</div>
 		<div id="content" class="container-fluid article">
-			<h1 id="app-configuration-with-appjson">App Configuration with app.json</h1>
+			<h1 id="setting-up-ads">Setting up Ads</h1>
 
-<p>Each app has an <strong>app.json</strong> file. This file is used to configure how an app is to be loaded, product versioning, install instructions.</p>
+<p>As an Admin you can create HTML based ads direct from your AdminCP by creating a new block and placing
+the HTML code anywhere on your site in specific block locations.</p>
 
-<p>The base app.json file will look something like this:</p>
-<pre><code class="json">{
-    "id": "Acme",
-    "name": "Acme",
-    "version": 1,
-    "icon": "http:\/\/cdn.com\/acme.png",
-    "settings": {
-    	"foo": {
-    		"info": "Foo Setting for Bar"
-    	}
-    },
-    "js": [
-    	"http://cdn.com\/acme.js"
-    ]
-    "menu": {
-    	"name": "Acme",
-    	"url": "/acme",
-    	"icon": "smile-o"
-    }
-}</code></pre>
+<h2 id="enabling-ads-for-users">Enabling ads for Users</h2>
 
-<h2 id="config-params">Config Params</h2>
+<p>To enable ads for your users to submit and for you to monetize, the first thing you need to create is an <strong>Ad Placement</strong>.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Info</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>id</td>
-      <td>Products ID. Must be a valid path in the <strong>PF.Site/Apps/</strong> directory. When creating this id, keep in mind that it can only contain alphanumeric characters and/or an underscore.</td>
-    </tr>
-    <tr>
-      <td>name</td>
-      <td>Name of your product.</td>
-    </tr>
-    <tr>
-      <td>version</td>
-      <td>Version of your product.</td>
-    </tr>
-    <tr>
-      <td>icon</td>
-      <td>Full path to where icon is located.</td>
-    </tr>
-    <tr>
-      <td>settings</td>
-      <td>Define settings Admins can edit from the Admin Control Panel.</td>
-    </tr>
-    <tr>
-      <td>js</td>
-      <td>If you wish to include external JavaScript files you can add them here as an (array).</td>
-    </tr>
-    <tr>
-      <td>menu</td>
-      <td>Define if a menu should be created on the initial install.</td>
-    </tr>
-  </tbody>
-</table>
+<p>To do this, login into your AdminCP and go to</p>
 
 <blockquote>
-  <p>When making changes to this file and it may require clearing your sites cache in some instances.</p>
+  <p>Settings &gt; Ad Campaigns</p>
 </blockquote>
 
-<p><a href="/apps/routing/" class="next">Working with Routes</a></p>
+<p>Then click on <strong>Manage Placements</strong> and then <strong>NEW PLACEMENT</strong></p>
+
+<p><img src="/assets/img/create-an-ad-placement.png" alt="" /></p>
+
+<p>Our ad placements support both <strong>CPM</strong> and <strong>PPC</strong>.</p>
+
+<p>Once you have created a placement you or your users can now create ads if that membership group has permission to do so.</p>
+
+<h2 id="user-group-permission">User Group Permission</h2>
+
+<p>Lets make sure users are actually allowed to create ads, by default this is disabled. So lets enable it for Admins.</p>
+
+<p>Head over to</p>
+
+<blockquote>
+  <p>User Groups &gt; (drop down) Manage User Settings &gt; Ad</p>
+</blockquote>
+
+<p>Enable <strong>Can create ad campaigns?</strong></p>
+
+<h2 id="creating-an-ad">Creating an Ad</h2>
+
+<p>Now that we have an ad placement and that we gave our user group the power to create ads, head over to your site.</p>
+
+<p>At the bottom of any page of your site you should find the link <strong>Advertise</strong>. Visit the page and you should find
+a link <strong>CREATE AN AD</strong>.</p>
+
+<p>This is where you and your users can now create ads.</p>
 
 		</div>
 		
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/configuration/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/admin-tips/setting-up-ads/index.md" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>
