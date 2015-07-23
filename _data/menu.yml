@@ -50,6 +50,9 @@
     - title: Phrases
       url: phrases
 
+    - title: AJAX
+      url: ajax
+
     - title: Examples & Resources
       url: examples-and-resources
 
