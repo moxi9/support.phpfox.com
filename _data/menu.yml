@@ -59,6 +59,9 @@
     - title: Examples & Resources
       url: examples-and-resources
 
+    - title: Blocks
+      url: blocks
+
 - name: API Reference
   url: api
   icon:
