@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
-		<title>Editing your sites Javascript with PHPfox - PHPfox Docs</title>
+		<title>Blocks - PHPfox Docs</title>
 		
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -101,7 +101,7 @@
 						<a href="/apps/examples-and-resources/">Examples & Resources</a>
 					
 						
-						<a href="/apps/blocks/">Blocks</a>
+						<a href="/apps/blocks/" class="active">Blocks</a>
 					
 					</div>
 				</div>
@@ -145,7 +145,7 @@
 						<a href="/themes/css/">Editing CSS</a>
 					
 						
-						<a href="/themes/javascript/" class="active">Editing JavaScript</a>
+						<a href="/themes/javascript/">Editing JavaScript</a>
 					
 					</div>
 				</div>
@@ -179,25 +179,57 @@
 			</nav>
 		</div>
 		<div id="content" class="container-fluid article">
-			<h1 id="editing-your-themes-javascript">Editing your Themes Javascript</h1>
-<p><img src="/assets/img/editing-javascript.png" alt="" /></p>
+			<h1 id="blocks">Blocks</h1>
 
-<p>When you are working with JavaScript you need to make sure to place any code within our <strong>$Ready</strong> function. This function is called
-whenever a page is loaded and is fired when the document is ready.</p>
+<p>Your app may not need full out controllers and may focus on creating features by providing sites with additional blocks.</p>
 
-<p>We use <a href="https://jquery.com/">jQuery</a> as our main library of choice.</p>
+<p>You can define specific controllers a block should show up on.</p>
 
-<pre><code class="javascript">$Ready(function() {
-	// add JS here... jQuery is supported!
-});
+<p>In your <strong>start.php</strong> add the following</p>
+
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">new Core\Block(&#39;core.index-member&#39;, 1, function(Core\Block $block) {</span>
+<span class="x">	$block-&gt;title(&#39;Hello World!&#39;);</span>
+<span class="x">	$block-&gt;content(&#39;I am a block...&#39;);</span>
+<span class="x">});</span></code></pre></div>
+
+<p>In this example we attach a block to the <strong>core.index-member</strong> controller, as defined by the first argument.</p>
+
+<p>The 2nd argument is the location of the block. <strong>1</strong> is the main side panel. </p>
+
+<p>Your options are…</p>
+
+<ul>
+  <li>1 = Main side panel</li>
+  <li>3 = Secondary side panel</li>
+  <li>2 = Main content</li>
+  <li>4 = Secondary content</li>
+</ul>
+
+<p>The 3rd argument is a callback, which is where you can do your work.</p>
+
+<p>The above example will output…</p>
+
+<p><img src="/assets/img/block.png" alt="" /></p>
+
+<p>To find out what the name of a controller is, lets first visit your sites dashboard as a user. View the HTML source of the page.</p>
+
+<p>Look for…</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">id=</span><span class="s">&quot;page_core_index-member&quot;</span></code></pre></div>
+
+<p>So, when looking for the controller name you first remove <strong>page__</strong> and then replace the first underscore with a dot. So the controller for this page is</p>
+
+<pre><code>core.index-member
 </code></pre>
+
+<p>If you visit your blog section, the body ID will be <strong>page_blog_index</strong>, so the controller would then be <strong>blog.index</strong>.</p>
 
 		</div>
 		
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/themes/javascript/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/blocks/index.md" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>
