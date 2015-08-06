@@ -53,6 +53,9 @@
     - title: AJAX
       url: ajax
 
+    - title: Install, Un-install & Upgrades
+      url: install-uninstall-upgrades
+
     - title: Examples & Resources
       url: examples-and-resources
 
