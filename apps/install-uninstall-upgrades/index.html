@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
-		<title>Installing v3 Modular Apps - PHPfox Docs</title>
+		<title>Install, Un-install & Upgrades - PHPfox Docs</title>
 		
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -95,7 +95,7 @@
 						<a href="/apps/ajax/">AJAX</a>
 					
 						
-						<a href="/apps/install-uninstall-upgrades/">Install, Un-install & Upgrades</a>
+						<a href="/apps/install-uninstall-upgrades/" class="active">Install, Un-install & Upgrades</a>
 					
 						
 						<a href="/apps/examples-and-resources/">Examples & Resources</a>
@@ -155,7 +155,7 @@
 						<a href="/admin-tips/changing-your-sites-favicon/">Changing your Sites Favicon</a>
 					
 						
-						<a href="/admin-tips/installing-v3-modular-apps/" class="active">Installing v3 Modular Apps</a>
+						<a href="/admin-tips/installing-v3-modular-apps/">Installing v3 Modular Apps</a>
 					
 						
 						<a href="/admin-tips/setting-up-ads/">Setting up Ads</a>
@@ -176,59 +176,33 @@
 			</nav>
 		</div>
 		<div id="content" class="container-fluid article">
-			<h1 id="installing-v3-modular-apps">Installing v3 Modular Apps</h1>
+			<h1 id="install-un-install--upgrades">Install, Un-install &amp; Upgrades</h1>
 
-<p>Using modules that were developed for v3 can be installed in v4 using very similar methods provided by v3.</p>
+<p>As for <strong>4.0.5</strong> you can create a file called <strong>installer.php</strong> in your apps root directory.</p>
 
-<h2 id="disclaimer">Disclaimer</h2>
+<p>In that file add</p>
 
-<blockquote>
-  <p>This article is intended to explain the method to install modules with v4 and does not guarantee a modules functionality.</p>
-</blockquote>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 
-<blockquote>
-  <p>This article tests a 3rd party module, <a href="http://store.phpfox.com/product/407/my-schools">My Schools</a> developed by Konsort.org.</p>
-</blockquote>
+<span class="nv">$installer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Core\App\Installer</span><span class="p">();</span>
 
-<h2 id="phpfox-base-directory">PHPfox Base Directory</h2>
+<span class="nv">$installer</span><span class="o">-&gt;</span><span class="na">onInstall</span><span class="p">(</span><span class="k">function</span><span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$installer</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// do stuffs</span>
+<span class="p">});</span></code></pre></div>
 
-<p>The first major difference you will notice with v3 and v4 is the directory/file structure. This
-is very true at first glance, however if you navigate into the folder <strong>/PF.Base/</strong> you will notice
-a very familiar directory structure that is similar to v3.</p>
+<p>Within the <strong>do stuffs</strong> you can then perform any task you wish in order to complete the install of your app.</p>
 
-<h2 id="uploading-modular-apps">Uploading Modular Apps</h2>
+<p>With the <strong>$installer</strong> variable we have access to the database.</p>
 
-<p>When you upload any modular app, the instructions provided by the developers usually guide you to upload
-their files to your sites root directory, which in v4 would be in the <strong>/PF.Base/</strong> folder.</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$installer-&gt;db-&gt;query(&#39;SELECT * FROM phpfox_user&#39;);</span></code></pre></div>
 
-<h2 id="enabling-module-from-admincp">Enabling Module from AdminCP</h2>
-
-<p>Once you have uploaded all of the modules files, login into your AdminCP. On your dashboard you should find the product.</p>
-
-<p><img src="/assets/img/admincp-install-module.png" alt="" /></p>
-
-<h2 id="finding-modules">Finding Modules</h2>
-
-<p>Once you have installed a module you can find it with all of your other Apps.</p>
-
-<blockquote>
-  <p>AdminCP &gt; Apps</p>
-</blockquote>
-
-<p><img src="/assets/img/modules-list.png" alt="" /></p>
-
-<h2 id="managing-your-module">Managing your Module</h2>
-
-<p>Once you have found the module, click on it to manage any AdminCP settings it may have.</p>
-
-<p><img src="/assets/img/editing-module-settings.png" alt="" /></p>
 
 		</div>
 		
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/admin-tips/installing-v3-modular-apps/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/install-uninstall-upgrades/index.md" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>
