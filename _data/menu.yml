@@ -62,6 +62,9 @@
     - title: Blocks
       url: blocks
 
+    - title: Global & User Group Settings
+      url: global-and-user-group-settings
+
 - name: API Reference
   url: api
   icon:
