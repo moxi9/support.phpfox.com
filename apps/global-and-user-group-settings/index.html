@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
-		<title>Routing - PHPfox Docs</title>
+		<title>Global & User Group Settings - PHPfox Docs</title>
 		
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -74,7 +74,7 @@
 						<a href="/apps/configuration/">Configuration</a>
 					
 						
-						<a href="/apps/routing/" class="active">Page Routing</a>
+						<a href="/apps/routing/">Page Routing</a>
 					
 						
 						<a href="/apps/route-grouping/">Route Grouping</a>
@@ -104,7 +104,7 @@
 						<a href="/apps/blocks/">Blocks</a>
 					
 						
-						<a href="/apps/global-and-user-group-settings/">Global & User Group Settings</a>
+						<a href="/apps/global-and-user-group-settings/" class="active">Global & User Group Settings</a>
 					
 					</div>
 				</div>
@@ -182,57 +182,77 @@
 			</nav>
 		</div>
 		<div id="content" class="container-fluid article">
-			<h1 id="routing">Routing</h1>
+			<h1 id="global--user-group-settings">Global &amp; User Group Settings</h1>
 
-<p>In order for a page to exist a route must be created for it. There are several ways to output a page, as well as several methods
-to create a route. Our first step will be to create the most basic route.</p>
+<p>Adding both global and user group settings can be done from your <strong>app.json</strong> file.</p>
 
-<h2 id="inline-routing">Inline Routing</h2>
+<h2 id="global-settings">Global Settings</h2>
 
-<p>This method of creating a route is for smaller apps that do not need a PHP class structure. To get this started in your
-app folder open the file <strong>start.php</strong>. In that file add the following:</p>
-<pre><code class="php">&lt;?php
+<p>Global settings are used to give your app the power to control certain features in a global sense. These settings are not specific to a user
+group and are mainly used to provide authentication settings or to enabling/disabling a feature.</p>
 
-new Core\Route('/hello-world', function() {
-    echo "Hello World!";
-});</code></pre>
+<p>In this example, our <strong>app.json</strong> file look like this…</p>
 
-<p>Once you saved the file, visit your site by going to <mark>http://localhost/hello-world</mark></p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;PHPfox_Settings&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;PHPfox Settings Test&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;icon&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+	<span class="nt">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="nt">&quot;pfs_test&quot;</span><span class="p">:</span> <span class="p">{</span>
+			<span class="nt">&quot;info&quot;</span><span class="p">:</span> <span class="s2">&quot;What is your name?&quot;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></div>
 
-<p>If all goes well, you should see a blank page with just <strong>Hello World!</strong></p>
+<p>The part we need to focus on is…</p>
 
-<p>You have created your first route! Let’s take a look at what we have done thus far. In order to create a new route we access
-our <strong>Core</strong> class <strong>Route</strong>. The first argument is the route (e.g. url) to connect your callback. The 2nd argument is the callback.
-Anything you echo in the callback will be output to the browser when the route is valid.</p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="s2">&quot;settings&quot;</span><span class="err">:</span> <span class="p">{</span>
+	<span class="nt">&quot;pfs_test&quot;</span><span class="p">:</span> <span class="p">{</span>
+		<span class="nt">&quot;info&quot;</span><span class="p">:</span> <span class="s2">&quot;What is your name?&quot;</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></div>
 
-<h2 id="adding-a-view">Adding a View</h2>
+<p>Once you provide this set of objects, these settings will show up in the AdminCP when visiting your app.</p>
 
-<p>The page looks a little boring, lets connect our page to the base theme. In order to do this we need to work with HTML <strong>views</strong>.
-For this example lets create a file called <strong>hello-world.html</strong> in the <strong>/views/</strong> folder of your app. In that file add</p>
-<pre><code class="php">Hello World with a different view!</code></pre>
+<p><img src="/assets/img/admincp-global-setting.png" alt="" /></p>
 
-<p>Next, lets go back to our <strong>start.php</strong> and replace that file with</p>
-<pre><code class="php">&lt;?php
+<p>Enter a value for this setting and you can later output it via route</p>
 
-new Core\Route('/hello-world', function(Core\Controller $Controller) {
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">new Core\Route(&#39;/phpfox-settings-test&#39;, function() {</span>
+<span class="x">	echo &#39;My name is: &#39; . setting(&#39;pfs_test&#39;);</span>
+<span class="x">});</span></code></pre></div>
 
-    return $Controller-&gt;render('hello-world.html');
-});</code></pre>
+<h2 id="user-group-settings">User Group Settings</h2>
 
-<p>Now when you visit <mark>http://localhost/hello-world</mark> you will find <em>“Hello World with a different view!”</em> in the main content area and now connected to the sites theme.</p>
+<p>Similar to global settings, you can define user group settings in your <strong>app.json</strong> file</p>
 
-<p>We now added a <strong>return</strong> using the <strong>render</strong> function, which is part of the <strong>Core\Controller</strong> class.</p>
-<pre><code class="php">return $Controller-&gt;render('hello-world.html');</code></pre>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="s2">&quot;user_group_settings&quot;</span><span class="err">:</span> <span class="p">{</span>
+		<span class="nt">&quot;pfs_test_setting&quot;</span><span class="p">:</span> <span class="p">{</span>
+			<span class="nt">&quot;info&quot;</span><span class="p">:</span> <span class="s2">&quot;Do be or not to be?&quot;</span><span class="p">,</span>
+			<span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;input:radio&quot;</span><span class="p">,</span>
+			<span class="nt">&quot;options&quot;</span><span class="p">:</span> <span class="p">{</span>
+				<span class="nt">&quot;yes&quot;</span><span class="p">:</span> <span class="s2">&quot;Yes&quot;</span><span class="p">,</span>
+				<span class="nt">&quot;no&quot;</span><span class="p">:</span> <span class="s2">&quot;No&quot;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span></code></pre></div>
 
-<p><a href="/apps/route-grouping/" class="next">Grouping your Routes</a></p>
+<p>When visiting your App in the AdminCP, you will find
+<img src="/assets/img/admincp-user-group-settings.png" alt="" /></p>
 
+<p>To get the value of a user group setting in your Route, you can use</p>
+
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">new Core\Route(&#39;/phpfox-settings-test&#39;, function() {</span>
+<span class="x">	echo &#39;To be or not to be: &#39; . user(&#39;pfs_test_setting&#39;);</span>
+<span class="x">});</span></code></pre></div>
 
 		</div>
 		
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/routing/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/global-and-user-group-settings/index.md" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>
