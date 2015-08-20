@@ -186,7 +186,7 @@
 
 <p>Your app may not need full out controllers and may focus on creating features by providing sites with additional blocks.</p>
 
-<p>You can define specific controllers a block should show up on.</p>
+<p>You can define a specific controller where the block should show up on.</p>
 
 <p>In your <strong>start.php</strong> add the following</p>
 
@@ -226,6 +226,31 @@
 </code></pre>
 
 <p>If you visit your blog section, the body ID will be <strong>page_blog_index</strong>, so the controller would then be <strong>blog.index</strong>.</p>
+
+<h2 id="creating-an-empty-block">Creating an Empty Block</h2>
+
+<p><strong>Requires:</strong> PHPfox &gt;= 4.0.7</p>
+
+<p>You can also create an empty block by just returning an HTML string.</p>
+
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">new Core\Block(&#39;route_hello-world&#39;, 1, function(Core\Block $block) {</span>
+<span class="x">	return &#39;Hello!&#39;;</span>
+<span class="x">});</span></code></pre></div>
+
+<h2 id="attaching-blocks-to-routes">Attaching Blocks to Routes</h2>
+
+<p><strong>Requires:</strong> PHPfox &gt;= 4.0.7</p>
+
+<p>If you are developing routes in your apps, you can attach a block to that route without having to define the controller name.</p>
+
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">new Core\Route(&#39;/hello-world&#39;, function(Core\Controller $controller) {</span>
+<span class="x">	$controller-&gt;block(1, function(Core\Block $block) {</span>
+<span class="x">		return &#39;Empty Block...&#39;;</span>
+<span class="x">	});</span>
+<span class="x">	</span>
+<span class="x">	return $controller-&gt;render(&#39;index.html&#39;);</span>
+<span class="x">});</span></code></pre></div>
+
 
 		</div>
 		
