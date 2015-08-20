@@ -7,7 +7,7 @@ title: Blocks
 
 Your app may not need full out controllers and may focus on creating features by providing sites with additional blocks.
 
-You can define specific controllers a block should show up on.
+You can define a specific controller where the block should show up on.
 
 In your **start.php** add the following
 {% highlight php %}
@@ -46,3 +46,30 @@ So, when looking for the controller name you first remove **page__** and then re
     core.index-member
     
 If you visit your blog section, the body ID will be **page_blog_index**, so the controller would then be **blog.index**.
+
+## Creating an Empty Block
+
+**Requires:** PHPfox >= 4.0.7
+
+You can also create an empty block by just returning an HTML string.
+
+{% highlight php %}
+new Core\Block('route_hello-world', 1, function(Core\Block $block) {
+	return 'Hello!';
+});
+{% endhighlight %}
+
+## Attaching Blocks to Routes
+ 
+**Requires:** PHPfox >= 4.0.7
+
+If you are developing routes in your apps, you can attach a block to that route without having to define the controller name.
+{% highlight php %}
+new Core\Route('/hello-world', function(Core\Controller $controller) {
+	$controller->block(1, function(Core\Block $block) {
+		return 'Empty Block...';
+	});
+	
+	return $controller->render('index.html');
+});
+{% endhighlight %}
