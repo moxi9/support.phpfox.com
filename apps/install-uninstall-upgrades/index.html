@@ -12,7 +12,7 @@
 		<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/8.6/styles/default.min.css">
 
 		<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/assets/css/main.css?v=3">
+		<link rel="stylesheet" href="/assets/css/main.css?v=4">
 
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 		<link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -95,7 +95,7 @@
 						<a href="/apps/ajax/">AJAX</a>
 					
 						
-						<a href="/apps/install-uninstall-upgrades/" class="active">Install, Un-install & Upgrades</a>
+						<a href="/apps/install-uninstall-upgrades/">Install, Un-install & Upgrades</a>
 					
 						
 						<a href="/apps/examples-and-resources/">Examples & Resources</a>
@@ -188,19 +188,19 @@
 
 <p>In that file add</p>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 
 <span class="nv">$installer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Core\App\Installer</span><span class="p">();</span>
 
 <span class="nv">$installer</span><span class="o">-&gt;</span><span class="na">onInstall</span><span class="p">(</span><span class="k">function</span><span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$installer</span><span class="p">)</span> <span class="p">{</span>
-	<span class="c1">// do stuffs</span>
-<span class="p">});</span></code></pre></div>
+	<span class="c1">// do stuffs
+</span><span class="p">});</span></code></pre></figure>
 
 <p>Within the <strong>do stuffs</strong> you can then perform any task you wish in order to complete the install of your app.</p>
 
 <p>With the <strong>$installer</strong> variable we have access to the database.</p>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$installer-&gt;db-&gt;query(&#39;SELECT * FROM phpfox_user&#39;);</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-php" data-lang="php">$installer-&gt;db-&gt;query('SELECT * FROM phpfox_user');</code></pre></figure>
 
 
 		</div>
@@ -208,7 +208,7 @@
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/install-uninstall-upgrades/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/install-uninstall-upgrades/" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>
@@ -219,7 +219,7 @@
 		<script src="//cdn.jsdelivr.net/jquery.magnific-popup/1.0.0/jquery.magnific-popup.min.js"></script>
 		<script src="//cdn.jsdelivr.net/highlight.js/8.6/highlight.min.js"></script>
 
-		<script src="/assets/js/main.js?v=3"></script>
-		<script src="/assets/js/search.js?v=3"></script>
+		<script src="/assets/js/main.js?v=4"></script>
+		<script src="/assets/js/search.js?v=4"></script>
 	</body>
 </html>

@@ -12,7 +12,7 @@
 		<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/8.6/styles/default.min.css">
 
 		<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/assets/css/main.css?v=3">
+		<link rel="stylesheet" href="/assets/css/main.css?v=4">
 
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 		<link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -104,7 +104,7 @@
 						<a href="/apps/blocks/">Blocks</a>
 					
 						
-						<a href="/apps/global-and-user-group-settings/" class="active">Global & User Group Settings</a>
+						<a href="/apps/global-and-user-group-settings/">Global & User Group Settings</a>
 					
 					</div>
 				</div>
@@ -193,25 +193,25 @@ group and are mainly used to provide authentication settings or to enabling/disa
 
 <p>In this example, our <strong>app.json</strong> file look like this…</p>
 
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
-	<span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;PHPfox_Settings&quot;</span><span class="p">,</span>
-	<span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;PHPfox Settings Test&quot;</span><span class="p">,</span>
-	<span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
-	<span class="nt">&quot;icon&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-	<span class="nt">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{</span>
-		<span class="nt">&quot;pfs_test&quot;</span><span class="p">:</span> <span class="p">{</span>
-			<span class="nt">&quot;info&quot;</span><span class="p">:</span> <span class="s2">&quot;What is your name?&quot;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+	</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PHPfox_Settings"</span><span class="p">,</span><span class="w">
+	</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PHPfox Settings Test"</span><span class="p">,</span><span class="w">
+	</span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
+	</span><span class="nt">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+	</span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+		</span><span class="nt">"pfs_test"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+			</span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What is your name?"</span><span class="w">
+		</span><span class="p">}</span><span class="w">
+	</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
 
 <p>The part we need to focus on is…</p>
 
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="s2">&quot;settings&quot;</span><span class="err">:</span> <span class="p">{</span>
-	<span class="nt">&quot;pfs_test&quot;</span><span class="p">:</span> <span class="p">{</span>
-		<span class="nt">&quot;info&quot;</span><span class="p">:</span> <span class="s2">&quot;What is your name?&quot;</span>
-	<span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="s2">"settings"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="nt">"pfs_test"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+		</span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What is your name?"</span><span class="w">
+	</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
 
 <p>Once you provide this set of objects, these settings will show up in the AdminCP when visiting your app.</p>
 
@@ -219,40 +219,40 @@ group and are mainly used to provide authentication settings or to enabling/disa
 
 <p>Enter a value for this setting and you can later output it via route</p>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">new Core\Route(&#39;/phpfox-settings-test&#39;, function() {</span>
-<span class="x">	echo &#39;My name is: &#39; . setting(&#39;pfs_test&#39;);</span>
-<span class="x">});</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-php" data-lang="php">new Core\Route('/phpfox-settings-test', function() {
+	echo 'My name is: ' . setting('pfs_test');
+});</code></pre></figure>
 
 <h2 id="user-group-settings">User Group Settings</h2>
 
 <p>Similar to global settings, you can define user group settings in your <strong>app.json</strong> file</p>
 
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="s2">&quot;user_group_settings&quot;</span><span class="err">:</span> <span class="p">{</span>
-		<span class="nt">&quot;pfs_test_setting&quot;</span><span class="p">:</span> <span class="p">{</span>
-			<span class="nt">&quot;info&quot;</span><span class="p">:</span> <span class="s2">&quot;Do be or not to be?&quot;</span><span class="p">,</span>
-			<span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;input:radio&quot;</span><span class="p">,</span>
-			<span class="nt">&quot;options&quot;</span><span class="p">:</span> <span class="p">{</span>
-				<span class="nt">&quot;yes&quot;</span><span class="p">:</span> <span class="s2">&quot;Yes&quot;</span><span class="p">,</span>
-				<span class="nt">&quot;no&quot;</span><span class="p">:</span> <span class="s2">&quot;No&quot;</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="s2">"user_group_settings"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+		</span><span class="nt">"pfs_test_setting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+			</span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Do be or not to be?"</span><span class="p">,</span><span class="w">
+			</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"input:radio"</span><span class="p">,</span><span class="w">
+			</span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+				</span><span class="nt">"yes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yes"</span><span class="p">,</span><span class="w">
+				</span><span class="nt">"no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No"</span><span class="w">
+			</span><span class="p">}</span><span class="w">
+		</span><span class="p">}</span><span class="w">
+	</span><span class="p">}</span></code></pre></figure>
 
 <p>When visiting your App in the AdminCP, you will find
 <img src="/assets/img/admincp-user-group-settings.png" alt="" /></p>
 
 <p>To get the value of a user group setting in your Route, you can use</p>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">new Core\Route(&#39;/phpfox-settings-test&#39;, function() {</span>
-<span class="x">	echo &#39;To be or not to be: &#39; . user(&#39;pfs_test_setting&#39;);</span>
-<span class="x">});</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-php" data-lang="php">new Core\Route('/phpfox-settings-test', function() {
+	echo 'To be or not to be: ' . user('pfs_test_setting');
+});</code></pre></figure>
 
 		</div>
 		
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/global-and-user-group-settings/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/global-and-user-group-settings/" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>
@@ -263,7 +263,7 @@ group and are mainly used to provide authentication settings or to enabling/disa
 		<script src="//cdn.jsdelivr.net/jquery.magnific-popup/1.0.0/jquery.magnific-popup.min.js"></script>
 		<script src="//cdn.jsdelivr.net/highlight.js/8.6/highlight.min.js"></script>
 
-		<script src="/assets/js/main.js?v=3"></script>
-		<script src="/assets/js/search.js?v=3"></script>
+		<script src="/assets/js/main.js?v=4"></script>
+		<script src="/assets/js/search.js?v=4"></script>
 	</body>
 </html>

@@ -12,7 +12,7 @@
 		<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/8.6/styles/default.min.css">
 
 		<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/assets/css/main.css?v=3">
+		<link rel="stylesheet" href="/assets/css/main.css?v=4">
 
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 		<link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -101,7 +101,7 @@
 						<a href="/apps/examples-and-resources/">Examples & Resources</a>
 					
 						
-						<a href="/apps/blocks/" class="active">Blocks</a>
+						<a href="/apps/blocks/">Blocks</a>
 					
 						
 						<a href="/apps/global-and-user-group-settings/">Global & User Group Settings</a>
@@ -190,10 +190,10 @@
 
 <p>In your <strong>start.php</strong> add the following</p>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">new Core\Block(&#39;core.index-member&#39;, 1, function(Core\Block $block) {</span>
-<span class="x">	$block-&gt;title(&#39;Hello World!&#39;);</span>
-<span class="x">	$block-&gt;content(&#39;I am a block...&#39;);</span>
-<span class="x">});</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-php" data-lang="php">new Core\Block('core.index-member', 1, function(Core\Block $block) {
+	$block-&gt;title('Hello World!');
+	$block-&gt;content('I am a block...');
+});</code></pre></figure>
 
 <p>In this example we attach a block to the <strong>core.index-member</strong> controller, as defined by the first argument.</p>
 
@@ -218,7 +218,7 @@
 
 <p>Look for…</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">id=</span><span class="s">&quot;page_core_index-member&quot;</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">id=</span><span class="s">"page_core_index-member"</span></code></pre></figure>
 
 <p>So, when looking for the controller name you first remove <strong>page__</strong> and then replace the first underscore with a dot. So the controller for this page is</p>
 
@@ -233,9 +233,9 @@
 
 <p>You can also create an empty block by just returning an HTML string.</p>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">new Core\Block(&#39;route_hello-world&#39;, 1, function(Core\Block $block) {</span>
-<span class="x">	return &#39;Hello!&#39;;</span>
-<span class="x">});</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-php" data-lang="php">new Core\Block('route_hello-world', 1, function(Core\Block $block) {
+	return 'Hello!';
+});</code></pre></figure>
 
 <h2 id="attaching-blocks-to-routes">Attaching Blocks to Routes</h2>
 
@@ -243,13 +243,13 @@
 
 <p>If you are developing routes in your apps, you can attach a block to that route without having to define the controller name.</p>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">new Core\Route(&#39;/hello-world&#39;, function(Core\Controller $controller) {</span>
-<span class="x">	$controller-&gt;block(1, function(Core\Block $block) {</span>
-<span class="x">		return &#39;Empty Block...&#39;;</span>
-<span class="x">	});</span>
-<span class="x">	</span>
-<span class="x">	return $controller-&gt;render(&#39;index.html&#39;);</span>
-<span class="x">});</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-php" data-lang="php">new Core\Route('/hello-world', function(Core\Controller $controller) {
+	$controller-&gt;block(1, function(Core\Block $block) {
+		return 'Empty Block...';
+	});
+	
+	return $controller-&gt;render('index.html');
+});</code></pre></figure>
 
 
 		</div>
@@ -257,7 +257,7 @@
 
 		
 			<div class="links">
-				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/blocks/index.md" target="_blank">
+				<a href="https://github.com/moxi9/support.phpfox.com/blob/master/apps/blocks/" target="_blank">
 					<i class="fa fa-github"></i> Edit on Github
 				</a>
 			</div>
@@ -268,7 +268,7 @@
 		<script src="//cdn.jsdelivr.net/jquery.magnific-popup/1.0.0/jquery.magnific-popup.min.js"></script>
 		<script src="//cdn.jsdelivr.net/highlight.js/8.6/highlight.min.js"></script>
 
-		<script src="/assets/js/main.js?v=3"></script>
-		<script src="/assets/js/search.js?v=3"></script>
+		<script src="/assets/js/main.js?v=4"></script>
+		<script src="/assets/js/search.js?v=4"></script>
 	</body>
 </html>
