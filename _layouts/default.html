@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>{{ page.title }} - PHPfox Docs</title>
-		{% assign version = 3 %}
+		{% assign version = 4 %}
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 
 		<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -25,7 +25,7 @@
 			</div>
 		</div>
 
-		{% if page.url == "/index.html" or page.url == "/browse/index.html" %}
+		{% if page.url == "/index.html" or page.url == "/browse/index.html" or page.url == "/" or page.url == "/browse/" %}
 		<div id="content">
 			{{ content }}
 		</div>

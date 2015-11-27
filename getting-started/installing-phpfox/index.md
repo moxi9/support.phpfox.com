@@ -8,7 +8,7 @@ This guide will help you through the installation process of PHPfox v4 or higher
 
 ## Downloading
 
-Download the latest version of PHPfox from [here](https://github.com/moxi9/phpfox-dist/archive/master.zip).
+Download the latest version of PHPfox from [here](http://store.phpfox.com/download).
 
 Once you have downloaded and unzipped the package, you should see something like this...
 
