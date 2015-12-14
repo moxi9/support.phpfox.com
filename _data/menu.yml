@@ -9,9 +9,6 @@
     - title: Installing PHPfox
       url: installing-phpfox
 
-    - title: Installing PHPfox with Git
-      url: installing-phpfox-with-git
-
 - name: Upgrading PHPfox
   url: upgrading-phpfox
   icon:
